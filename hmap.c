@@ -27,6 +27,12 @@
 
 #include "hmap.h"
 
+/******************************************************************************//*
+ * \brief Creates new hash table.
+ *
+ * This hash table will use provided hash_fn and cmpr_fn to hash/compare keys.
+ * Default size of inner table is HASH_STARTING_SIZE.
+ ********************************************************************************/
 hash_table_t* create_table(hash_function_t hash_fn, eq_function_t cmpr_fn) {
     hash_table_t* table = (hash_table_t*) malloc(sizeof(hash_table_t));
     table->hash_fn = hash_fn;
@@ -38,6 +44,12 @@ hash_table_t* create_table(hash_function_t hash_fn, eq_function_t cmpr_fn) {
     return table;
 }
 
+/******************************************************************************//*
+ * \brief Deallocates table.
+ *
+ * Removes all data from the table and table itself from memory.
+ * Will NOT deallocate table keys nor entries!
+ ********************************************************************************/
 void destroy_table(hash_table_t* table) {
     uint32_t i = 0;
     for (; i<table->len; i++) {
@@ -50,6 +62,9 @@ void destroy_table(hash_table_t* table) {
     free(table);
 }
 
+/******************************************************************************//*
+ * Returns cell from the hash table.
+ ********************************************************************************/
 static hash_pair_t**  find_cell(hash_table_t* table, void* key, uint32_t hashed, bool dont_skip_deleted) {
     uint32_t primary_hash = hashed % table->max_size;
     uint32_t secondary_hash = 1 + (hashed % (table->max_size - 1));
@@ -69,6 +84,9 @@ static hash_pair_t**  find_cell(hash_table_t* table, void* key, uint32_t hashed,
     return &table->hash_table[hash];
 }
 
+/******************************************************************************//*
+ * Resizes the hash table to accomodate new elements.
+ ********************************************************************************/
 static void resize_table(hash_table_t* table) {
     hash_table_t* new_table = (hash_table_t*) malloc(sizeof(hash_table_t));
     new_table->hash_fn = table->hash_fn;
@@ -93,6 +111,9 @@ static void resize_table(hash_table_t* table) {
     free(new_table);
 }
 
+/******************************************************************************//*
+ * Returns whether key is in the table or not.
+ ********************************************************************************/
 bool table_contains(hash_table_t* table, void* key) {
     hash_pair_t** cell = find_cell(table, key, table->hash_fn(key), false);
     if (*cell != FREE_CELL && *cell != DELETED_CELL)
@@ -101,14 +122,24 @@ bool table_contains(hash_table_t* table, void* key) {
         return false;
 }
 
+/******************************************************************************//*
+ * \brief Returns value of key in the table.
+ *
+ * Returns NULL if key is not in the table.
+ ********************************************************************************/
 void* table_get(hash_table_t* table, void* key) {
     hash_pair_t** cell = find_cell(table, key, table->hash_fn(key), false);
     if (*cell != FREE_CELL && *cell != DELETED_CELL)
         return (*cell)->data;
     else
-        return 0;
+        return NULL;
 }
 
+/******************************************************************************//*
+ * \brief Sets the key in the table to the data.
+ *
+ * Will remove old key-data pair if it exists (does not deallocate old data value!).
+ ********************************************************************************/
 void table_set(hash_table_t* table, void* key, void* data) {
     hash_pair_t** cell = find_cell(table, key, table->hash_fn(key), true);
     if (*cell == FREE_CELL || *cell == DELETED_CELL) {
@@ -128,6 +159,12 @@ void table_set(hash_table_t* table, void* key, void* data) {
     }
 }
 
+/******************************************************************************//*
+ * \brief Removes key from the table.
+ *
+ * Returns true if operation was done successfully, false if there was no such
+ * key.
+ ********************************************************************************/
 bool table_remove(hash_table_t* table, void* key) {
     hash_pair_t** cell = find_cell(table, key, table->hash_fn(key), false);
     if (*cell != FREE_CELL && *cell != DELETED_CELL) {
@@ -139,10 +176,16 @@ bool table_remove(hash_table_t* table, void* key) {
     return false;
 }
 
+/******************************************************************************//*
+ * Returns number of elements in the table.
+ ********************************************************************************/
 uint32_t table_size(hash_table_t* table) {
     return table->len;
 }
 
+/******************************************************************************//*
+ * Copies table to another table.
+ ********************************************************************************/
 hash_table_t* copy_table(hash_table_t* table) {
     hash_table_t* copy = (hash_table_t*) malloc(sizeof(hash_table_t));
     copy->cmpr_fn = table->cmpr_fn;
@@ -166,6 +209,9 @@ hash_table_t* copy_table(hash_table_t* table) {
     return copy;
 }
 
+/******************************************************************************//*
+ * Returns value from iterator and moves iterator to next element.
+ ********************************************************************************/
 void* hash_it_next(hash_table_t* table, hash_it_t* iterator) {
     void* data = 0;
     while (data != 0 && *iterator < table->max_size) {
@@ -178,14 +224,23 @@ void* hash_it_next(hash_table_t* table, hash_it_t* iterator) {
     return data;
 }
 
+/******************************************************************************//*
+ * Creates table for uint32_t keys.
+ ********************************************************************************/
 hash_table_t* create_uint32_table() {
     return create_table(uint32_hash_function, uint32_eq_function);
 }
 
+/******************************************************************************//*
+ * Creates table for uint64_t keys.
+ ********************************************************************************/
 hash_table_t* create_uint64_table() {
     return create_table(uint64_hash_function, uint64_eq_function);
 }
 
+/******************************************************************************//*
+ * Creates table for char* string keys.
+ ********************************************************************************/
 hash_table_t* create_string_table() {
     return create_table(string_hash_function, string_eq_function);
 }

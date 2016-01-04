@@ -32,6 +32,9 @@
 
 typedef struct queue_element queue_element_t;
 
+/**************************************************************\\**
+ * Single queue element
+ ******************************************************************/
 struct queue_element {
     bool __pool_c;
     void* data;
@@ -39,35 +42,38 @@ struct queue_element {
     queue_element_t* next;
 };
 
+/**************************************************************\\**
+ * Pool for queue elements to avoid allocation all the time and
+ * fragmentation
+ ******************************************************************/
 typedef struct queue_pool {
     void* pool_data;
     uint32_t max_size;
 } queue_pool_t;
 
+/**************************************************************\\**
+ * Queue
+ ******************************************************************/
 typedef struct queue {
+	/** Whether queue can be enlared after initial allocation */
     bool is_static;
+    /** First element of queue */
     queue_element_t* first;
+    /** Last element of queue */
     queue_element_t* last;
+    /** Number of elements in queue */
     uint32_t size;
+    /** Queue allocation pool */
     queue_pool_t queue_pool;
 } queue_t;
 
 queue_t* create_queue();
-
 void* queue_pop(queue_t* queue);
-
 void* queue_peek(queue_t* queue);
-
 bool queue_has_elements(queue_t* queue);
-
 bool queue_push(queue_t* queue, void* data);
-
 uint32_t queue_size(queue_t* queue);
-
 void free_queue(queue_t* queue);
-
 queue_t* create_queue_static(uint32_t queue_max_size);
-
 void queue_remove(void* element, queue_t* queue);
-
 void* queue_find_by_predicate(void* data, search_predicate_t func, queue_t* queue);

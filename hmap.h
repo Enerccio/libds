@@ -35,40 +35,41 @@
 #define FREE_CELL               0
 #define DELETED_CELL    ((void*)1)
 
+/******************************************************************************//*
+ * Represents hash pair
+ ********************************************************************************/
 typedef struct {
     void* key;
     void* data;
 } hash_pair_t;
 
+/******************************************************************************//*
+ * Hash table
+ ********************************************************************************/
 typedef struct {
+	/** Inner table for hash pairs */
     hash_pair_t** hash_table;
+    /** Hash function */
     hash_function_t hash_fn;
+    /** Compare function */
     eq_function_t cmpr_fn;
+    /** Number of elements in this map */
     uint32_t len;
+    /** Max number of elements that can be stored in hash_table array */
     uint32_t max_size;
 } hash_table_t;
 
 typedef uint32_t hash_it_t;
 
 hash_table_t* create_table(hash_function_t hash_fn, eq_function_t cmpr_fn);
-
 void destroy_table(hash_table_t* table);
-
 bool table_contains(hash_table_t* table, void* key);
-
 void* table_get(hash_table_t* table, void* key);
-
 void table_set(hash_table_t* table, void* key, void* data);
-
 bool table_remove(hash_table_t* table, void* key);
-
 uint32_t table_size(hash_table_t* table);
-
 hash_table_t* copy_table(hash_table_t* table);
-
 void* hash_it_next(hash_table_t* table, hash_it_t* iterator);
-
-/* helper constructor functions */
 
 hash_table_t* create_uint32_table();
 hash_table_t* create_uint64_table();

@@ -29,7 +29,7 @@
 #include "btree.h"
 
 /***********************************************************************/
-/*  FUNCTION:  RBTreeCreate */
+/*  FUNCTION:  rb_create_tree */
 /**/
 /*  INPUTS:  All the inputs are names of functions.  CompFunc takes to */
 /*  void pointers to keys and returns 1 if the first arguement is */
@@ -73,7 +73,7 @@ rb_tree_t* rb_create_tree(cmp_func_t CompFunc,
 }
 
 /***********************************************************************/
-/*  FUNCTION:  LeftRotate */
+/*  FUNCTION:  left_rotate */
 /**/
 /*  INPUTS:  This takes a tree so that it can access the appropriate */
 /*           root and nil pointers, and the node to rotate on. */
@@ -89,7 +89,7 @@ rb_tree_t* rb_create_tree(cmp_func_t CompFunc,
 /*            accordingly. */
 /***********************************************************************/
 
-void LeftRotate(rb_tree_t* tree, rb_node_t* x) {
+static void left_rotate(rb_tree_t* tree, rb_node_t* x) {
   rb_node_t* y;
   rb_node_t* nil=tree->nil;
 
@@ -125,7 +125,7 @@ void LeftRotate(rb_tree_t* tree, rb_node_t* x) {
 
 
 /***********************************************************************/
-/*  FUNCTION:  RighttRotate */
+/*  FUNCTION:  right_rotate */
 /**/
 /*  INPUTS:  This takes a tree so that it can access the appropriate */
 /*           root and nil pointers, and the node to rotate on. */
@@ -141,7 +141,7 @@ void LeftRotate(rb_tree_t* tree, rb_node_t* x) {
 /*            accordingly. */
 /***********************************************************************/
 
-void RightRotate(rb_tree_t* tree, rb_node_t* y) {
+static void right_rotate(rb_tree_t* tree, rb_node_t* y) {
   rb_node_t* x;
   rb_node_t* nil=tree->nil;
 
@@ -174,7 +174,7 @@ void RightRotate(rb_tree_t* tree, rb_node_t* y) {
 }
 
 /***********************************************************************/
-/*  FUNCTION:  TreeInsertHelp  */
+/*  FUNCTION:  tree_insert_help  */
 /**/
 /*  INPUTS:  tree is the tree to insert into and z is the node to insert */
 /**/
@@ -184,12 +184,12 @@ void RightRotate(rb_tree_t* tree, rb_node_t* y) {
 /**/
 /*  EFFECTS:  Inserts z into the tree as if it were a regular binary tree */
 /*            using the algorithm described in _Introduction_To_Algorithms_ */
-/*            by Cormen et al.  This funciton is only intended to be called */
-/*            by the RBTreeInsert function and not by the user */
+/*            by Cormen et al.  This function is only intended to be called */
+/*            by the rb_insert function and not by the user */
 /***********************************************************************/
 
-void TreeInsertHelp(rb_tree_t* tree, rb_node_t* z) {
-  /*  This function should only be called by InsertRBTree (see above) */
+static void tree_insert_help(rb_tree_t* tree, rb_node_t* z) {
+  /*  This function should only be called by rb_insert (see above) */
   rb_node_t* x;
   rb_node_t* y;
   rb_node_t* nil=tree->nil;
@@ -217,7 +217,7 @@ void TreeInsertHelp(rb_tree_t* tree, rb_node_t* z) {
 /*  Before calling Insert RBTree the node x should have its key set */
 
 /***********************************************************************/
-/*  FUNCTION:  RBTreeInsert */
+/*  FUNCTION:  rb_insert */
 /**/
 /*  INPUTS:  tree is the red-black tree to insert a node which has a key */
 /*           pointed to by key and info pointed to by info.  */
@@ -243,7 +243,7 @@ rb_node_t * rb_insert(rb_tree_t* tree, void* key, void* info) {
   x->key=key;
   x->info=info;
 
-  TreeInsertHelp(tree,x);
+  tree_insert_help(tree,x);
   newNode=x;
   x->red=1;
   while(x->parent->red) { /* use sentinel instead of checking for root */
@@ -257,11 +257,11 @@ rb_node_t * rb_insert(rb_tree_t* tree, void* key, void* info) {
       } else {
     if (x == x->parent->right) {
       x=x->parent;
-      LeftRotate(tree,x);
+      left_rotate(tree,x);
     }
     x->parent->red=0;
     x->parent->parent->red=1;
-    RightRotate(tree,x->parent->parent);
+    right_rotate(tree,x->parent->parent);
       }
     } else { /* case for x->parent == x->parent->parent->right */
       y=x->parent->parent->left;
@@ -273,11 +273,11 @@ rb_node_t * rb_insert(rb_tree_t* tree, void* key, void* info) {
       } else {
     if (x == x->parent->left) {
       x=x->parent;
-      RightRotate(tree,x);
+      right_rotate(tree,x);
     }
     x->parent->red=0;
     x->parent->parent->red=1;
-    LeftRotate(tree,x->parent->parent);
+    left_rotate(tree,x->parent->parent);
       }
     }
   }
@@ -286,7 +286,7 @@ rb_node_t * rb_insert(rb_tree_t* tree, void* key, void* info) {
 }
 
 /***********************************************************************/
-/*  FUNCTION:  TreeSuccessor  */
+/*  FUNCTION:  tree_successor  */
 /**/
 /*    INPUTS:  tree is the tree in question, and x is the node we want the */
 /*             the successor of. */
@@ -299,7 +299,7 @@ rb_node_t * rb_insert(rb_tree_t* tree, void* key, void* info) {
 /*    Note:  uses the algorithm in _Introduction_To_Algorithms_ */
 /***********************************************************************/
 
-rb_node_t* tree_successor(rb_tree_t* tree,rb_node_t* x) {
+rb_node_t* tree_successor(rb_tree_t* tree, rb_node_t* x) {
   rb_node_t* y;
   rb_node_t* nil=tree->nil;
   rb_node_t* root=tree->root;
@@ -321,7 +321,7 @@ rb_node_t* tree_successor(rb_tree_t* tree,rb_node_t* x) {
 }
 
 /***********************************************************************/
-/*  FUNCTION:  Treepredecessor  */
+/*  FUNCTION:  tree_predecesor  */
 /**/
 /*    INPUTS:  tree is the tree in question, and x is the node we want the */
 /*             the predecessor of. */
@@ -357,25 +357,25 @@ rb_node_t* tree_predecesor(rb_tree_t* tree, rb_node_t* x) {
 
 
 /***********************************************************************/
-/*  FUNCTION:  TreeDestHelper */
+/*  FUNCTION:  tree_dest_helper */
 /**/
 /*    INPUTS:  tree is the tree to destroy and x is the current node */
 /**/
 /*    OUTPUT:  none  */
 /**/
 /*    EFFECTS:  This function recursively destroys the nodes of the tree */
-/*              postorder using the DestroyKey and DestroyInfo functions. */
+/*              postorder using the destroy_key and destroy_value functions. */
 /**/
 /*    Modifies Input: tree, x */
 /**/
-/*    Note:    This function should only be called by RBTreeDestroy */
+/*    Note:    This function should only be called by rb_destroy */
 /***********************************************************************/
 
-void TreeDestHelper(rb_tree_t* tree, rb_node_t* x) {
+void tree_dest_helper(rb_tree_t* tree, rb_node_t* x) {
   rb_node_t* nil=tree->nil;
   if (x != nil) {
-    TreeDestHelper(tree,x->left);
-    TreeDestHelper(tree,x->right);
+    tree_dest_helper(tree,x->left);
+    tree_dest_helper(tree,x->right);
     tree->key_deallocator_func(x->key);
     tree->value_deallocator_func(x->info);
     free(x);
@@ -384,7 +384,7 @@ void TreeDestHelper(rb_tree_t* tree, rb_node_t* x) {
 
 
 /***********************************************************************/
-/*  FUNCTION:  RBTreeDestroy */
+/*  FUNCTION:  rb_destroy */
 /**/
 /*    INPUTS:  tree is the tree to destroy */
 /**/
@@ -397,7 +397,7 @@ void TreeDestHelper(rb_tree_t* tree, rb_node_t* x) {
 /***********************************************************************/
 
 void rb_destroy(rb_tree_t* tree) {
-  TreeDestHelper(tree,tree->root->left);
+  tree_dest_helper(tree,tree->root->left);
   free(tree->root);
   free(tree->nil);
   free(tree);
@@ -405,7 +405,7 @@ void rb_destroy(rb_tree_t* tree) {
 
 
 /***********************************************************************/
-/*  FUNCTION:  RBExactQuery */
+/*  FUNCTION:  tree_find */
 /**/
 /*    INPUTS:  tree is the tree to print and q is a pointer to the key */
 /*             we are searching for */
@@ -438,10 +438,10 @@ rb_node_t* tree_find(rb_tree_t* tree, void* q) {
 
 
 /***********************************************************************/
-/*  FUNCTION:  RBDeleteFixUp */
+/*  FUNCTION:  rb_delete_fixup */
 /**/
 /*    INPUTS:  tree is the tree to fix and x is the child of the spliced */
-/*             out node in RBTreeDelete. */
+/*             out node in rb_delete. */
 /**/
 /*    OUTPUT:  none */
 /**/
@@ -453,7 +453,7 @@ rb_node_t* tree_find(rb_tree_t* tree, void* q) {
 /*    The algorithm from this function is from _Introduction_To_Algorithms_ */
 /***********************************************************************/
 
-void RBDeleteFixUp(rb_tree_t* tree, rb_node_t* x) {
+static void rb_delete_fixup(rb_tree_t* tree, rb_node_t* x) {
   rb_node_t* root=tree->root->left;
   rb_node_t* w;
 
@@ -463,7 +463,7 @@ void RBDeleteFixUp(rb_tree_t* tree, rb_node_t* x) {
       if (w->red) {
     w->red=0;
     x->parent->red=1;
-    LeftRotate(tree,x->parent);
+    left_rotate(tree,x->parent);
     w=x->parent->right;
       }
       if ( (!w->right->red) && (!w->left->red) ) {
@@ -473,13 +473,13 @@ void RBDeleteFixUp(rb_tree_t* tree, rb_node_t* x) {
     if (!w->right->red) {
       w->left->red=0;
       w->red=1;
-      RightRotate(tree,w);
+      right_rotate(tree,w);
       w=x->parent->right;
     }
     w->red=x->parent->red;
     x->parent->red=0;
     w->right->red=0;
-    LeftRotate(tree,x->parent);
+    left_rotate(tree,x->parent);
     x=root; /* this is to exit while loop */
       }
     } else { /* the code below is has left and right switched from above */
@@ -487,7 +487,7 @@ void RBDeleteFixUp(rb_tree_t* tree, rb_node_t* x) {
       if (w->red) {
     w->red=0;
     x->parent->red=1;
-    RightRotate(tree,x->parent);
+    right_rotate(tree,x->parent);
     w=x->parent->left;
       }
       if ( (!w->right->red) && (!w->left->red) ) {
@@ -497,13 +497,13 @@ void RBDeleteFixUp(rb_tree_t* tree, rb_node_t* x) {
     if (!w->left->red) {
       w->right->red=0;
       w->red=1;
-      LeftRotate(tree,w);
+      left_rotate(tree,w);
       w=x->parent->left;
     }
     w->red=x->parent->red;
     x->parent->red=0;
     w->left->red=0;
-    RightRotate(tree,x->parent);
+    right_rotate(tree,x->parent);
     x=root; /* this is to exit while loop */
       }
     }
@@ -513,7 +513,7 @@ void RBDeleteFixUp(rb_tree_t* tree, rb_node_t* x) {
 
 
 /***********************************************************************/
-/*  FUNCTION:  RBDelete */
+/*  FUNCTION:  rb_delete */
 /**/
 /*    INPUTS:  tree is the tree to delete node z from */
 /**/
@@ -521,7 +521,7 @@ void RBDeleteFixUp(rb_tree_t* tree, rb_node_t* x) {
 /**/
 /*    EFFECT:  Deletes z from tree and frees the key and info of z */
 /*             using DestoryKey and DestoryInfo.  Then calls */
-/*             RBDeleteFixUp to restore red-black properties */
+/*             rb_delete_fixup to restore red-black properties */
 /**/
 /*    Modifies Input: tree, z */
 /**/
@@ -548,7 +548,7 @@ void rb_delete(rb_tree_t* tree, rb_node_t* z) {
   if (y != z) { /* y should not be nil in this case */
     /* y is the node to splice out and x is its child */
 
-    if (!(y->red)) RBDeleteFixUp(tree,x);
+    if (!(y->red)) rb_delete_fixup(tree,x);
 
     tree->key_deallocator_func(z->key);
     tree->value_deallocator_func(z->info);
@@ -566,7 +566,7 @@ void rb_delete(rb_tree_t* tree, rb_node_t* z) {
   } else {
     tree->key_deallocator_func(y->key);
     tree->value_deallocator_func(y->info);
-    if (!(y->red)) RBDeleteFixUp(tree,x);
+    if (!(y->red)) rb_delete_fixup(tree,x);
     free(y);
   }
 }

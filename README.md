@@ -26,7 +26,7 @@ requiring memory allocation and ffreestanding environment).
 * `extern void* realloc(void* a, size_t n)`
 * `extern void  free(void* a)`
 * `extern int   strcmp(const char* a, const char* b)`
-* `extern void  memset(char* c, int v, size_t s)`
+* `extern void* memset(void* c, int v, size_t s)`
 
 ## Building libds
 

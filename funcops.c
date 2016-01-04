@@ -27,9 +27,11 @@
 
 #include "funcops.h"
 
-/**
- * Converts uint32_t in void* into hash.
- */
+/******************************************************************************//*
+ * \brief Converts uint32_t passed in as void* into hash
+ *
+ * Hash type is uint32_t.
+ ********************************************************************************/
 uint32_t uint32_hash_function(void* integer) {
     uint32_t a = (uint32_t) ((uintptr_t)integer);
     a = (a + 0x7ed55d16) + (a << 12);
@@ -41,23 +43,36 @@ uint32_t uint32_hash_function(void* integer) {
     return a;
 }
 
-/**
- * Integer comparisons, of void* arguments representing integer.
- */
+/******************************************************************************//*
+ * Compares two uint32_t values passed in as void*
+ ********************************************************************************/
 bool uint32_eq_function(void* a, void* b) {
     return a == b ? true : false;
 }
 
+/******************************************************************************//*
+ * \brief Converts uint64_t passed in as void* into hash
+ *
+ * Hash type is uint32_t.
+ ********************************************************************************/
 uint32_t uint64_hash_function(void* integer) {
     uint64_t a = (uint64_t)integer;
     return uint32_hash_function((void*)(uintptr_t)(a >> 32 & 0xFFFFFFFF)) ^
             uint32_hash_function((void*)(uintptr_t)(a & 0xFFFFFFFF));
 }
 
+/******************************************************************************//*
+ * Compares two uint64_t values passed in as void*
+ ********************************************************************************/
 bool uint64_eq_function(void* a, void* b) {
     return a == b ? true : false;
 }
 
+/******************************************************************************//*
+ * \brief Converts char* passed in as void* into hash
+ *
+ * Hash type is uint32_t.
+ ********************************************************************************/
 uint32_t string_hash_function(void* string) {
     char* str = string;
     uint32_t hash = 5381;
@@ -69,6 +84,11 @@ uint32_t string_hash_function(void* string) {
     return hash;
 }
 
+/******************************************************************************//*
+ * \brief Compares two char* values passed in as void*
+ *
+ * Uses strcmp.
+ ********************************************************************************/
 bool string_eq_function(void* a, void* b) {
     return strcmp((char*)a, (char*)b) == 0;
 }
