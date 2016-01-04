@@ -30,9 +30,6 @@
 #include "_commons.h"
 #include "funcops.h"
 
-#include <stdlib.h>
-#include <string.h>
-
 #define HASH_STARTING_SIZE 97
 
 #define FREE_CELL               0

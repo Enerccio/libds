@@ -30,13 +30,9 @@
 #include "_commons.h"
 #include "funcops.h"
 #include "random.h"
-#include <stdlib.h>
-#include <string.h>
 
 /** Number of elements in starting size */
 #define ARRAY_STARTING_SIZE 32
-
-
 
 typedef struct {
     void**   data;
