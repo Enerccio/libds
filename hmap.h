@@ -30,6 +30,10 @@
 #include "_commons.h"
 #include "funcops.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define HASH_STARTING_SIZE 97
 
 #define FREE_CELL               0
@@ -74,3 +78,7 @@ void* hash_it_next(hash_table_t* table, hash_it_t* iterator);
 hash_table_t* create_uint32_table();
 hash_table_t* create_uint64_table();
 hash_table_t* create_string_table();
+
+#ifdef __cplusplus
+}
+#endif

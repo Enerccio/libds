@@ -31,6 +31,10 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern void* malloc(size_t n);
 extern void* calloc(size_t num, size_t n);
 extern void* realloc(void* a, size_t n);
@@ -43,7 +47,6 @@ extern void* memset(void* c, int v, size_t s);
 #endif
 typedef REGISTER_UINT_TYPE ruint_t;
 
-#ifndef PHYSICAL_UINT_TYPE
-#define PHYSICAL_UINT_TYPE uintptr_t
+#ifdef __cplusplus
+}
 #endif
-typedef PHYSICAL_UINT_TYPE puint_t;

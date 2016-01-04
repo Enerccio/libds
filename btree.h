@@ -30,6 +30,10 @@
 #include "_commons.h"
 #include "funcops.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*  CONVENTIONS:  All data structures for red-black trees have the prefix */
 /*                "rb_" to prevent name conflicts. */
 /*                                                                      */
@@ -78,3 +82,7 @@ void rb_delete(rb_tree_t*, rb_node_t* );
 void rb_destroy(rb_tree_t*);
 rb_node_t* tree_predecesor(rb_tree_t*,rb_node_t*);
 rb_node_t* tree_successor(rb_tree_t*,rb_node_t*);
+
+#ifdef __cplusplus
+}
+#endif

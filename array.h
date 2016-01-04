@@ -31,6 +31,10 @@
 #include "funcops.h"
 #include "random.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** Number of elements in starting size */
 #define ARRAY_STARTING_SIZE 32
 
@@ -62,3 +66,7 @@ void destroy_array(array_t* array);
 void* array_find_by_pred(array_t* array, search_predicate_t predicate, void* data);
 void* array_get_random(array_t* array, rg_t* rg);
 void array_clean(array_t* array);
+
+#ifdef __cplusplus
+}
+#endif

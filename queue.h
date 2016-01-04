@@ -30,6 +30,10 @@
 #include "_commons.h"
 #include "funcops.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct queue_element queue_element_t;
 
 /**************************************************************\\**
@@ -77,3 +81,7 @@ void free_queue(queue_t* queue);
 queue_t* create_queue_static(uint32_t queue_max_size);
 void queue_remove(void* element, queue_t* queue);
 void* queue_find_by_predicate(void* data, search_predicate_t func, queue_t* queue);
+
+#ifdef __cplusplus
+}
+#endif

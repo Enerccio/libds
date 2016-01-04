@@ -29,6 +29,10 @@
 
 #include "_commons.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef bool (*search_predicate_t)(void* element, void* passed_data);
 typedef int  (*cmp_func_t)(const void* a, const void* b);
 typedef void (*key_deallocator_func_t)(void* a);
@@ -44,3 +48,7 @@ uint32_t uint64_hash_function(void* integer);
 bool uint64_eq_function(void* a, void* b);
 uint32_t string_hash_function(void* string);
 bool string_eq_function(void* a, void* b);
+
+#ifdef __cplusplus
+}
+#endif

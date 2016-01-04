@@ -29,6 +29,10 @@
 
 #include "_commons.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /******************************************************************************//*
  * Random generator state.
  ********************************************************************************/
@@ -39,3 +43,7 @@ typedef struct random_generator {
 rg_t rg_create_random_generator(uint64_t seed);
 uint64_t rg_next_uint(rg_t* rg);
 uint64_t rg_next_uint_l(rg_t* rg, uint64_t limit);
+
+#ifdef __cplusplus
+}
+#endif
