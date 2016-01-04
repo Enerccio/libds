@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Libds by Enerccio</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Libds</h1>
+        <h2>Simple pure C data structures</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/Enerccio/libds/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/Enerccio/libds/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/Enerccio/libds" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="libds---datastructures" class="anchor" href="#libds---datastructures" aria-hidden="true"><span class="octicon octicon-link"></span></a>libds - datastructures</h1>
+
+<p><code>libds</code> is a library providing simple datastructures. It is designed to be portable (to the point only
+requiring memory allocation and ffreestanding environment).</p>
+
+<h2>
+<a id="provided-data-structures" class="anchor" href="#provided-data-structures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Provided data structures</h2>
+
+<ul>
+<li>
+<code>ds/random.h</code> - random number generator</li>
+<li>
+<code>ds/array.h</code> - resizable array list</li>
+<li>
+<code>ds/btree.h</code> - ballanced tree (red/black tree)</li>
+<li>
+<code>ds/hmap.h</code> - hashmap </li>
+<li>
+<code>ds/queue.h</code> - (FIFO) queue</li>
+<li>
+<code>ds/funcops.h</code> - standard function interfaces used by previous data structures (along with some defined concrete functions) </li>
+</ul>
+
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p><code>libds</code> requires these headers to be present at build environment:</p>
+
+<ul>
+<li><code>&lt;stdbool.h&gt;</code></li>
+<li><code>&lt;stddef.h&gt;</code></li>
+<li><code>&lt;stdint.h&gt;</code></li>
+</ul>
+
+<p><code>libds</code> also requires these extern functions:</p>
+
+<ul>
+<li><code>extern void* malloc(size_t n)</code></li>
+<li><code>extern void* calloc(size_t num, size_t n)</code></li>
+<li><code>extern void* realloc(void* a, size_t n)</code></li>
+<li><code>extern void  free(void* a)</code></li>
+</ul>
+
+<h2>
+<a id="building-libds" class="anchor" href="#building-libds" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building libds</h2>
+
+<p>To build libds, simply invoke <code>make all</code> in the root directory. You will need to provide suitable <code>SYSROOT</code> argument or a <code>PREFIX</code> argument. <code>INCLUDE</code> argument can be overwritten to change where headers will be copied to (they will always be in <code>INCLUDE</code>/<code>ds</code> directory).</p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
