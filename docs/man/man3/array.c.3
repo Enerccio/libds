@@ -1,0 +1,118 @@
+.TH "array.c" 3 "Mon Jan 4 2016" "Version v0.2" "libds" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+array.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'array\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBarray_t\fP * \fBcreate_array\fP ()"
+.br
+.RI "\fICreates array with ARRAY_STARTING_SIZE preallocation count\&. \fP"
+.ti -1c
+.RI "\fBarray_t\fP * \fBcreate_array_spec\fP (uint32_t starting_elementa_size)"
+.br
+.RI "\fICreates array with starting_elementa_size preallocation count\&. \fP"
+.ti -1c
+.RI "uint32_t \fBarray_push_data\fP (\fBarray_t\fP *\fBarray\fP, void *data)"
+.br
+.RI "\fIAdds data on the end of the array\&. \fP"
+.ti -1c
+.RI "int32_t \fBarray_find_data\fP (\fBarray_t\fP *\fBarray\fP, void *data)"
+.br
+.RI "\fIReturns index to the data in the array\&. \fP"
+.ti -1c
+.RI "void \fBarray_insert_at\fP (\fBarray_t\fP *\fBarray\fP, uint32_t position, void *data)"
+.br
+.RI "\fIInserts data at position\&. \fP"
+.ti -1c
+.RI "void * \fBarray_get_at\fP (\fBarray_t\fP *\fBarray\fP, uint32_t position)"
+.br
+.RI "\fIReturns data at position\&. \fP"
+.ti -1c
+.RI "void \fBarray_set_at\fP (\fBarray_t\fP *\fBarray\fP, uint32_t position, void *data)"
+.br
+.RI "\fIReplaces content at position with data\&. \fP"
+.ti -1c
+.RI "void \fBarray_remove_at\fP (\fBarray_t\fP *\fBarray\fP, uint32_t position)"
+.br
+.RI "\fIRemoves item at position\&. \fP"
+.ti -1c
+.RI "uint32_t \fBarray_get_size\fP (\fBarray_t\fP *\fBarray\fP)"
+.br
+.ti -1c
+.RI "void \fBdestroy_array\fP (\fBarray_t\fP *\fBarray\fP)"
+.br
+.RI "\fIDeallocates all memory used by this array\&. \fP"
+.ti -1c
+.RI "void * \fBarray_find_by_pred\fP (\fBarray_t\fP *\fBarray\fP, \fBsearch_predicate_t\fP predicate, void *data)"
+.br
+.RI "\fIReturns first element that matches predicate\&. \fP"
+.ti -1c
+.RI "void * \fBarray_get_random\fP (\fBarray_t\fP *\fBarray\fP, \fBrg_t\fP *rg)"
+.br
+.RI "\fIReturns random element from array\&. \fP"
+.ti -1c
+.RI "void \fBarray_clean\fP (\fBarray_t\fP *\fBarray\fP)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void array_clean (\fBarray_t\fP * array)"
+Removes all elements from array\&. 
+.SS "void* array_find_by_pred (\fBarray_t\fP * array, \fBsearch_predicate_t\fP predicate, void * data)"
+
+.PP
+Returns first element that matches predicate\&. Calls predicate function with each element of an array and with data provided, first true returned from the predicate is returned or NULL if nothing matched the predicate\&. 
+.SS "int32_t array_find_data (\fBarray_t\fP * array, void * data)"
+
+.PP
+Returns index to the data in the array\&. Returns -1 if data is not found in the array\&. Compares data via ==\&. 
+.SS "void* array_get_at (\fBarray_t\fP * array, uint32_t position)"
+
+.PP
+Returns data at position\&. Returns NULL if position is larger than size of an array or equal\&. 
+.SS "void* array_get_random (\fBarray_t\fP * array, \fBrg_t\fP * rg)"
+
+.PP
+Returns random element from array\&. Returns NULL if array is empty\&. 
+.SS "uint32_t array_get_size (\fBarray_t\fP * array)"
+Returns number of elements in the array 
+.SS "void array_insert_at (\fBarray_t\fP * array, uint32_t position, void * data)"
+
+.PP
+Inserts data at position\&. This operation is O(n) at worst case due to shifting\&. If n == size of array-1, then this operation is same as array_push_data\&. 
+.SS "uint32_t array_push_data (\fBarray_t\fP * array, void * data)"
+
+.PP
+Adds data on the end of the array\&. This is O(1) operation most of the time, unless array has to resize, then it is O(n) operation\&. data is always placed as last element\&. 
+.SS "void array_remove_at (\fBarray_t\fP * array, uint32_t position)"
+
+.PP
+Removes item at position\&. O(n) operation, due to shifting\&. If position == size of array, it is O(1) operation instead\&. 
+.SS "void array_set_at (\fBarray_t\fP * array, uint32_t position, void * data)"
+
+.PP
+Replaces content at position with data\&. Does nothing if position is larger than size of an array or equal\&. 
+.SS "\fBarray_t\fP* create_array ()"
+
+.PP
+Creates array with ARRAY_STARTING_SIZE preallocation count\&. Starting allocation size will be set to ARRAY_STARTING_SIZE * sizeof(void*)\&. 
+.SS "\fBarray_t\fP* create_array_spec (uint32_t starting_elementa_size)"
+
+.PP
+Creates array with starting_elementa_size preallocation count\&. Starting allocation size will be set to starting_elementa_size * sizeof(void*)\&. 
+.SS "void destroy_array (\fBarray_t\fP * array)"
+
+.PP
+Deallocates all memory used by this array\&. Elements itself are NOT deallocated! 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libds from the source code\&.

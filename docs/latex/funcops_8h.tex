@@ -1,0 +1,119 @@
+\hypertarget{funcops_8h}{}\section{funcops.\+h File Reference}
+\label{funcops_8h}\index{funcops.\+h@{funcops.\+h}}
+{\ttfamily \#include \char`\"{}\+\_\+commons.\+h\char`\"{}}\\*
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef bool($\ast$ \hyperlink{funcops_8h_aae786e6df58b8cbb8b46a1fc33fb057c}{search\+\_\+predicate\+\_\+t}) (void $\ast$element, void $\ast$passed\+\_\+data)
+\item 
+typedef int($\ast$ \hyperlink{funcops_8h_a743855be725d982bdbf1b77fa50c7fb4}{cmp\+\_\+func\+\_\+t}) (const void $\ast$a, const void $\ast$b)
+\item 
+typedef void($\ast$ \hyperlink{funcops_8h_a5e40dbb859d4ad69b1ce299ee1a89b2f}{key\+\_\+deallocator\+\_\+func\+\_\+t}) (void $\ast$a)
+\item 
+typedef void($\ast$ \hyperlink{funcops_8h_ada2556f4131df1b522ae610503522842}{value\+\_\+deallocator\+\_\+func\+\_\+t}) (void $\ast$a)
+\item 
+typedef uint32\+\_\+t($\ast$ \hyperlink{funcops_8h_ac6c2c7464b9edfc43bfb8fff933350d9}{hash\+\_\+function\+\_\+t}) (void $\ast$)
+\item 
+typedef bool($\ast$ \hyperlink{funcops_8h_a155f33befac21aca576a3062abb121de}{eq\+\_\+function\+\_\+t}) (void $\ast$, void $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{funcops_8h_a56e3a07586682296a76b98724f1307ad}{uint32\+\_\+hash\+\_\+function} (void $\ast$integer)
+\begin{DoxyCompactList}\small\item\em Converts uint32\+\_\+t passed in as void$\ast$ into hash. \end{DoxyCompactList}\item 
+bool \hyperlink{funcops_8h_a25952538cef4220ea57fdf172f2a4318}{uint32\+\_\+eq\+\_\+function} (void $\ast$a, void $\ast$b)
+\item 
+uint32\+\_\+t \hyperlink{funcops_8h_a8dc704a640b76155e4d6c8454bdb9ddd}{uint64\+\_\+hash\+\_\+function} (void $\ast$integer)
+\begin{DoxyCompactList}\small\item\em Converts uint64\+\_\+t passed in as void$\ast$ into hash. \end{DoxyCompactList}\item 
+bool \hyperlink{funcops_8h_a8ada8c87ec6bc440ac4c1445af7a885a}{uint64\+\_\+eq\+\_\+function} (void $\ast$a, void $\ast$b)
+\item 
+uint32\+\_\+t \hyperlink{funcops_8h_a31a185810f8e7bac1029a2a8226a13fc}{string\+\_\+hash\+\_\+function} (void $\ast$string)
+\begin{DoxyCompactList}\small\item\em Converts char$\ast$ passed in as void$\ast$ into hash. \end{DoxyCompactList}\item 
+bool \hyperlink{funcops_8h_af72817e509ee1c0e58bf939b6d5e8b3a}{string\+\_\+eq\+\_\+function} (void $\ast$a, void $\ast$b)
+\begin{DoxyCompactList}\small\item\em Compares two char$\ast$ values passed in as void$\ast$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{funcops_8h_a743855be725d982bdbf1b77fa50c7fb4}{}\index{funcops.\+h@{funcops.\+h}!cmp\+\_\+func\+\_\+t@{cmp\+\_\+func\+\_\+t}}
+\index{cmp\+\_\+func\+\_\+t@{cmp\+\_\+func\+\_\+t}!funcops.\+h@{funcops.\+h}}
+\subsubsection[{cmp\+\_\+func\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef int($\ast$ cmp\+\_\+func\+\_\+t) (const void $\ast$a, const void $\ast$b)}\label{funcops_8h_a743855be725d982bdbf1b77fa50c7fb4}
+\hypertarget{funcops_8h_a155f33befac21aca576a3062abb121de}{}\index{funcops.\+h@{funcops.\+h}!eq\+\_\+function\+\_\+t@{eq\+\_\+function\+\_\+t}}
+\index{eq\+\_\+function\+\_\+t@{eq\+\_\+function\+\_\+t}!funcops.\+h@{funcops.\+h}}
+\subsubsection[{eq\+\_\+function\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool($\ast$  eq\+\_\+function\+\_\+t) (void $\ast$, void $\ast$)}\label{funcops_8h_a155f33befac21aca576a3062abb121de}
+\hypertarget{funcops_8h_ac6c2c7464b9edfc43bfb8fff933350d9}{}\index{funcops.\+h@{funcops.\+h}!hash\+\_\+function\+\_\+t@{hash\+\_\+function\+\_\+t}}
+\index{hash\+\_\+function\+\_\+t@{hash\+\_\+function\+\_\+t}!funcops.\+h@{funcops.\+h}}
+\subsubsection[{hash\+\_\+function\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint32\+\_\+t($\ast$  hash\+\_\+function\+\_\+t) (void $\ast$)}\label{funcops_8h_ac6c2c7464b9edfc43bfb8fff933350d9}
+\hypertarget{funcops_8h_a5e40dbb859d4ad69b1ce299ee1a89b2f}{}\index{funcops.\+h@{funcops.\+h}!key\+\_\+deallocator\+\_\+func\+\_\+t@{key\+\_\+deallocator\+\_\+func\+\_\+t}}
+\index{key\+\_\+deallocator\+\_\+func\+\_\+t@{key\+\_\+deallocator\+\_\+func\+\_\+t}!funcops.\+h@{funcops.\+h}}
+\subsubsection[{key\+\_\+deallocator\+\_\+func\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ key\+\_\+deallocator\+\_\+func\+\_\+t) (void $\ast$a)}\label{funcops_8h_a5e40dbb859d4ad69b1ce299ee1a89b2f}
+\hypertarget{funcops_8h_aae786e6df58b8cbb8b46a1fc33fb057c}{}\index{funcops.\+h@{funcops.\+h}!search\+\_\+predicate\+\_\+t@{search\+\_\+predicate\+\_\+t}}
+\index{search\+\_\+predicate\+\_\+t@{search\+\_\+predicate\+\_\+t}!funcops.\+h@{funcops.\+h}}
+\subsubsection[{search\+\_\+predicate\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool($\ast$ search\+\_\+predicate\+\_\+t) (void $\ast$element, void $\ast$passed\+\_\+data)}\label{funcops_8h_aae786e6df58b8cbb8b46a1fc33fb057c}
+\hypertarget{funcops_8h_ada2556f4131df1b522ae610503522842}{}\index{funcops.\+h@{funcops.\+h}!value\+\_\+deallocator\+\_\+func\+\_\+t@{value\+\_\+deallocator\+\_\+func\+\_\+t}}
+\index{value\+\_\+deallocator\+\_\+func\+\_\+t@{value\+\_\+deallocator\+\_\+func\+\_\+t}!funcops.\+h@{funcops.\+h}}
+\subsubsection[{value\+\_\+deallocator\+\_\+func\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ value\+\_\+deallocator\+\_\+func\+\_\+t) (void $\ast$a)}\label{funcops_8h_ada2556f4131df1b522ae610503522842}
+
+
+\subsection{Function Documentation}
+\hypertarget{funcops_8h_af72817e509ee1c0e58bf939b6d5e8b3a}{}\index{funcops.\+h@{funcops.\+h}!string\+\_\+eq\+\_\+function@{string\+\_\+eq\+\_\+function}}
+\index{string\+\_\+eq\+\_\+function@{string\+\_\+eq\+\_\+function}!funcops.\+h@{funcops.\+h}}
+\subsubsection[{string\+\_\+eq\+\_\+function(void $\ast$a, void $\ast$b)}]{\setlength{\rightskip}{0pt plus 5cm}bool string\+\_\+eq\+\_\+function (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{a, }
+\item[{void $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{funcops_8h_af72817e509ee1c0e58bf939b6d5e8b3a}
+
+
+Compares two char$\ast$ values passed in as void$\ast$. 
+
+Uses strcmp. \hypertarget{funcops_8h_a31a185810f8e7bac1029a2a8226a13fc}{}\index{funcops.\+h@{funcops.\+h}!string\+\_\+hash\+\_\+function@{string\+\_\+hash\+\_\+function}}
+\index{string\+\_\+hash\+\_\+function@{string\+\_\+hash\+\_\+function}!funcops.\+h@{funcops.\+h}}
+\subsubsection[{string\+\_\+hash\+\_\+function(void $\ast$string)}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t string\+\_\+hash\+\_\+function (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{string}
+\end{DoxyParamCaption}
+)}\label{funcops_8h_a31a185810f8e7bac1029a2a8226a13fc}
+
+
+Converts char$\ast$ passed in as void$\ast$ into hash. 
+
+Hash type is uint32\+\_\+t. \hypertarget{funcops_8h_a25952538cef4220ea57fdf172f2a4318}{}\index{funcops.\+h@{funcops.\+h}!uint32\+\_\+eq\+\_\+function@{uint32\+\_\+eq\+\_\+function}}
+\index{uint32\+\_\+eq\+\_\+function@{uint32\+\_\+eq\+\_\+function}!funcops.\+h@{funcops.\+h}}
+\subsubsection[{uint32\+\_\+eq\+\_\+function(void $\ast$a, void $\ast$b)}]{\setlength{\rightskip}{0pt plus 5cm}bool uint32\+\_\+eq\+\_\+function (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{a, }
+\item[{void $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{funcops_8h_a25952538cef4220ea57fdf172f2a4318}
+Compares two uint32\+\_\+t values passed in as void$\ast$ \hypertarget{funcops_8h_a56e3a07586682296a76b98724f1307ad}{}\index{funcops.\+h@{funcops.\+h}!uint32\+\_\+hash\+\_\+function@{uint32\+\_\+hash\+\_\+function}}
+\index{uint32\+\_\+hash\+\_\+function@{uint32\+\_\+hash\+\_\+function}!funcops.\+h@{funcops.\+h}}
+\subsubsection[{uint32\+\_\+hash\+\_\+function(void $\ast$integer)}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t uint32\+\_\+hash\+\_\+function (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{integer}
+\end{DoxyParamCaption}
+)}\label{funcops_8h_a56e3a07586682296a76b98724f1307ad}
+
+
+Converts uint32\+\_\+t passed in as void$\ast$ into hash. 
+
+Hash type is uint32\+\_\+t. \hypertarget{funcops_8h_a8ada8c87ec6bc440ac4c1445af7a885a}{}\index{funcops.\+h@{funcops.\+h}!uint64\+\_\+eq\+\_\+function@{uint64\+\_\+eq\+\_\+function}}
+\index{uint64\+\_\+eq\+\_\+function@{uint64\+\_\+eq\+\_\+function}!funcops.\+h@{funcops.\+h}}
+\subsubsection[{uint64\+\_\+eq\+\_\+function(void $\ast$a, void $\ast$b)}]{\setlength{\rightskip}{0pt plus 5cm}bool uint64\+\_\+eq\+\_\+function (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{a, }
+\item[{void $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{funcops_8h_a8ada8c87ec6bc440ac4c1445af7a885a}
+Compares two uint64\+\_\+t values passed in as void$\ast$ \hypertarget{funcops_8h_a8dc704a640b76155e4d6c8454bdb9ddd}{}\index{funcops.\+h@{funcops.\+h}!uint64\+\_\+hash\+\_\+function@{uint64\+\_\+hash\+\_\+function}}
+\index{uint64\+\_\+hash\+\_\+function@{uint64\+\_\+hash\+\_\+function}!funcops.\+h@{funcops.\+h}}
+\subsubsection[{uint64\+\_\+hash\+\_\+function(void $\ast$integer)}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t uint64\+\_\+hash\+\_\+function (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{integer}
+\end{DoxyParamCaption}
+)}\label{funcops_8h_a8dc704a640b76155e4d6c8454bdb9ddd}
+
+
+Converts uint64\+\_\+t passed in as void$\ast$ into hash. 
+
+Hash type is uint32\+\_\+t. 

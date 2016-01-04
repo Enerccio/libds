@@ -27,7 +27,7 @@
 
 #include "queue.h"
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Creates empty queue
  *
  * This queue can taky any amount of elements and will resize itself when necessary.
@@ -41,7 +41,7 @@ queue_t* create_queue() {
     return queue;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Creates static empty queue with max_queue elements
  *
  * This queue can hold at most max_queue elements.
@@ -58,7 +58,7 @@ queue_t* create_queue_static(uint32_t max_queue) {
     return queue;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Removes head of the queue and returns it.
  *
  * Returns NULL if queue is empty.
@@ -92,7 +92,7 @@ void* queue_pop(queue_t* queue) {
     return data;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Returns head of the queue without removing it.
  *
  * Returns NULL if queue is empty.
@@ -105,14 +105,14 @@ void* queue_peek(queue_t* queue) {
     return queue_head->data;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * Returns true if queue is not empty.
  ********************************************************************************/
 bool queue_has_elements(queue_t* queue) {
     return queue_size(queue) > 0;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * Returns empty segment for queue element allocation.
  ********************************************************************************/
 static queue_element_t* get_free_segment(queue_t* queue) {
@@ -131,7 +131,7 @@ static queue_element_t* get_free_segment(queue_t* queue) {
     return 0;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Adds element to the queue.
  *
  * Element is put at the end of the queue.
@@ -163,14 +163,14 @@ bool queue_push(queue_t* queue, void* data) {
     return false;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * Returns number of elements in the queue.
  ********************************************************************************/
 uint32_t queue_size(queue_t* queue) {
     return queue->size;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Deallocates queue.
  *
  * Removes all memory used by this queue. Elements in the queue are NOT
@@ -190,7 +190,7 @@ void free_queue(queue_t* queue) {
     }
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Removes element from queue at any position.
  *
  * Element is compared via ==.
@@ -214,7 +214,7 @@ void queue_remove(void* element, queue_t* queue) {
     }
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Returns element from queue found by search predicate.
  *
  * For more info, see array.

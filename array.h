@@ -38,10 +38,10 @@ extern "C" {
 /** Number of elements in starting size */
 #define ARRAY_STARTING_SIZE 32
 
-/****************************************
+/****************************************//**
  * Array structure
- ****************************************/
-struct array {
+ ********************************************/
+typedef struct array {
 	/** Contains the data array containing elements */
     void**   data;
     /** Number of elements in the array */
@@ -50,8 +50,7 @@ struct array {
     uint32_t data_size;
     /** Statring size */
     uint32_t starting_size;
-};
-typedef struct array array_t;
+} array_t;
 
 array_t* create_array();
 array_t* create_array_spec(uint32_t starting_element_size);

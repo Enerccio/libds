@@ -1,0 +1,130 @@
+\hypertarget{btree_8c}{}\section{btree.\+c File Reference}
+\label{btree_8c}\index{btree.\+c@{btree.\+c}}
+{\ttfamily \#include \char`\"{}btree.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{btree_8h_a602b268b0e2e9b8d43cd83cbc2fd4244}{rb\+\_\+tree\+\_\+t} $\ast$ \hyperlink{btree_8c_a0ff3902cd46ca428c064c219cfb59702}{rb\+\_\+create\+\_\+tree} (\hyperlink{funcops_8h_a743855be725d982bdbf1b77fa50c7fb4}{cmp\+\_\+func\+\_\+t} Comp\+Func, \hyperlink{funcops_8h_a5e40dbb859d4ad69b1ce299ee1a89b2f}{key\+\_\+deallocator\+\_\+func\+\_\+t} Dest\+Func, \hyperlink{funcops_8h_ada2556f4131df1b522ae610503522842}{value\+\_\+deallocator\+\_\+func\+\_\+t} Info\+Dest\+Func)
+\item 
+static void \hyperlink{btree_8c_af79c41559708c9e016c77c16465818c7}{left\+\_\+rotate} (\hyperlink{btree_8h_a602b268b0e2e9b8d43cd83cbc2fd4244}{rb\+\_\+tree\+\_\+t} $\ast$tree, \hyperlink{btree_8h_ab34c6f1239590f1b8d7aa8660b77c485}{rb\+\_\+node\+\_\+t} $\ast$x)
+\item 
+static void \hyperlink{btree_8c_ab754e494e58407e4db58844c6570247d}{right\+\_\+rotate} (\hyperlink{btree_8h_a602b268b0e2e9b8d43cd83cbc2fd4244}{rb\+\_\+tree\+\_\+t} $\ast$tree, \hyperlink{btree_8h_ab34c6f1239590f1b8d7aa8660b77c485}{rb\+\_\+node\+\_\+t} $\ast$y)
+\item 
+static void \hyperlink{btree_8c_a74ca36e060fe306bc36850c57f80fbc6}{tree\+\_\+insert\+\_\+help} (\hyperlink{btree_8h_a602b268b0e2e9b8d43cd83cbc2fd4244}{rb\+\_\+tree\+\_\+t} $\ast$tree, \hyperlink{btree_8h_ab34c6f1239590f1b8d7aa8660b77c485}{rb\+\_\+node\+\_\+t} $\ast$z)
+\item 
+\hyperlink{btree_8h_ab34c6f1239590f1b8d7aa8660b77c485}{rb\+\_\+node\+\_\+t} $\ast$ \hyperlink{btree_8c_ad2a9f4f43ffa7dae8fb192e6666dc5a7}{rb\+\_\+insert} (\hyperlink{btree_8h_a602b268b0e2e9b8d43cd83cbc2fd4244}{rb\+\_\+tree\+\_\+t} $\ast$tree, void $\ast$key, void $\ast$info)
+\item 
+\hyperlink{btree_8h_ab34c6f1239590f1b8d7aa8660b77c485}{rb\+\_\+node\+\_\+t} $\ast$ \hyperlink{btree_8c_a5fc2794308c991ab17abd5b80733abcb}{tree\+\_\+successor} (\hyperlink{btree_8h_a602b268b0e2e9b8d43cd83cbc2fd4244}{rb\+\_\+tree\+\_\+t} $\ast$tree, \hyperlink{btree_8h_ab34c6f1239590f1b8d7aa8660b77c485}{rb\+\_\+node\+\_\+t} $\ast$x)
+\item 
+\hyperlink{btree_8h_ab34c6f1239590f1b8d7aa8660b77c485}{rb\+\_\+node\+\_\+t} $\ast$ \hyperlink{btree_8c_afb9c340fac77bb881b8c568c2c56d564}{tree\+\_\+predecesor} (\hyperlink{btree_8h_a602b268b0e2e9b8d43cd83cbc2fd4244}{rb\+\_\+tree\+\_\+t} $\ast$tree, \hyperlink{btree_8h_ab34c6f1239590f1b8d7aa8660b77c485}{rb\+\_\+node\+\_\+t} $\ast$x)
+\item 
+void \hyperlink{btree_8c_aa6524c175626ecc0e37c1dde283b9d19}{tree\+\_\+dest\+\_\+helper} (\hyperlink{btree_8h_a602b268b0e2e9b8d43cd83cbc2fd4244}{rb\+\_\+tree\+\_\+t} $\ast$tree, \hyperlink{btree_8h_ab34c6f1239590f1b8d7aa8660b77c485}{rb\+\_\+node\+\_\+t} $\ast$x)
+\item 
+void \hyperlink{btree_8c_a86c66342ba48cd06e100944bd723fccd}{rb\+\_\+destroy} (\hyperlink{btree_8h_a602b268b0e2e9b8d43cd83cbc2fd4244}{rb\+\_\+tree\+\_\+t} $\ast$tree)
+\item 
+\hyperlink{btree_8h_ab34c6f1239590f1b8d7aa8660b77c485}{rb\+\_\+node\+\_\+t} $\ast$ \hyperlink{btree_8c_a1b72a233307c693a2ca1dba03a02f20d}{tree\+\_\+find} (\hyperlink{btree_8h_a602b268b0e2e9b8d43cd83cbc2fd4244}{rb\+\_\+tree\+\_\+t} $\ast$tree, void $\ast$q)
+\item 
+static void \hyperlink{btree_8c_ab6d0ccd5c351063bfaeef7bb8d60b9ca}{rb\+\_\+delete\+\_\+fixup} (\hyperlink{btree_8h_a602b268b0e2e9b8d43cd83cbc2fd4244}{rb\+\_\+tree\+\_\+t} $\ast$tree, \hyperlink{btree_8h_ab34c6f1239590f1b8d7aa8660b77c485}{rb\+\_\+node\+\_\+t} $\ast$x)
+\item 
+void \hyperlink{btree_8c_abb7f0f1f350a7280d997f29679d71207}{rb\+\_\+delete} (\hyperlink{btree_8h_a602b268b0e2e9b8d43cd83cbc2fd4244}{rb\+\_\+tree\+\_\+t} $\ast$tree, \hyperlink{btree_8h_ab34c6f1239590f1b8d7aa8660b77c485}{rb\+\_\+node\+\_\+t} $\ast$z)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{btree_8c_af79c41559708c9e016c77c16465818c7}{}\index{btree.\+c@{btree.\+c}!left\+\_\+rotate@{left\+\_\+rotate}}
+\index{left\+\_\+rotate@{left\+\_\+rotate}!btree.\+c@{btree.\+c}}
+\subsubsection[{left\+\_\+rotate(rb\+\_\+tree\+\_\+t $\ast$tree, rb\+\_\+node\+\_\+t $\ast$x)}]{\setlength{\rightskip}{0pt plus 5cm}static void left\+\_\+rotate (
+\begin{DoxyParamCaption}
+\item[{{\bf rb\+\_\+tree\+\_\+t} $\ast$}]{tree, }
+\item[{{\bf rb\+\_\+node\+\_\+t} $\ast$}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{btree_8c_af79c41559708c9e016c77c16465818c7}
+\hypertarget{btree_8c_a0ff3902cd46ca428c064c219cfb59702}{}\index{btree.\+c@{btree.\+c}!rb\+\_\+create\+\_\+tree@{rb\+\_\+create\+\_\+tree}}
+\index{rb\+\_\+create\+\_\+tree@{rb\+\_\+create\+\_\+tree}!btree.\+c@{btree.\+c}}
+\subsubsection[{rb\+\_\+create\+\_\+tree(cmp\+\_\+func\+\_\+t Comp\+Func, key\+\_\+deallocator\+\_\+func\+\_\+t Dest\+Func, value\+\_\+deallocator\+\_\+func\+\_\+t Info\+Dest\+Func)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rb\+\_\+tree\+\_\+t}$\ast$ rb\+\_\+create\+\_\+tree (
+\begin{DoxyParamCaption}
+\item[{{\bf cmp\+\_\+func\+\_\+t}}]{Comp\+Func, }
+\item[{{\bf key\+\_\+deallocator\+\_\+func\+\_\+t}}]{Dest\+Func, }
+\item[{{\bf value\+\_\+deallocator\+\_\+func\+\_\+t}}]{Info\+Dest\+Func}
+\end{DoxyParamCaption}
+)}\label{btree_8c_a0ff3902cd46ca428c064c219cfb59702}
+\hypertarget{btree_8c_abb7f0f1f350a7280d997f29679d71207}{}\index{btree.\+c@{btree.\+c}!rb\+\_\+delete@{rb\+\_\+delete}}
+\index{rb\+\_\+delete@{rb\+\_\+delete}!btree.\+c@{btree.\+c}}
+\subsubsection[{rb\+\_\+delete(rb\+\_\+tree\+\_\+t $\ast$tree, rb\+\_\+node\+\_\+t $\ast$z)}]{\setlength{\rightskip}{0pt plus 5cm}void rb\+\_\+delete (
+\begin{DoxyParamCaption}
+\item[{{\bf rb\+\_\+tree\+\_\+t} $\ast$}]{tree, }
+\item[{{\bf rb\+\_\+node\+\_\+t} $\ast$}]{z}
+\end{DoxyParamCaption}
+)}\label{btree_8c_abb7f0f1f350a7280d997f29679d71207}
+\hypertarget{btree_8c_ab6d0ccd5c351063bfaeef7bb8d60b9ca}{}\index{btree.\+c@{btree.\+c}!rb\+\_\+delete\+\_\+fixup@{rb\+\_\+delete\+\_\+fixup}}
+\index{rb\+\_\+delete\+\_\+fixup@{rb\+\_\+delete\+\_\+fixup}!btree.\+c@{btree.\+c}}
+\subsubsection[{rb\+\_\+delete\+\_\+fixup(rb\+\_\+tree\+\_\+t $\ast$tree, rb\+\_\+node\+\_\+t $\ast$x)}]{\setlength{\rightskip}{0pt plus 5cm}static void rb\+\_\+delete\+\_\+fixup (
+\begin{DoxyParamCaption}
+\item[{{\bf rb\+\_\+tree\+\_\+t} $\ast$}]{tree, }
+\item[{{\bf rb\+\_\+node\+\_\+t} $\ast$}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{btree_8c_ab6d0ccd5c351063bfaeef7bb8d60b9ca}
+\hypertarget{btree_8c_a86c66342ba48cd06e100944bd723fccd}{}\index{btree.\+c@{btree.\+c}!rb\+\_\+destroy@{rb\+\_\+destroy}}
+\index{rb\+\_\+destroy@{rb\+\_\+destroy}!btree.\+c@{btree.\+c}}
+\subsubsection[{rb\+\_\+destroy(rb\+\_\+tree\+\_\+t $\ast$tree)}]{\setlength{\rightskip}{0pt plus 5cm}void rb\+\_\+destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf rb\+\_\+tree\+\_\+t} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)}\label{btree_8c_a86c66342ba48cd06e100944bd723fccd}
+\hypertarget{btree_8c_ad2a9f4f43ffa7dae8fb192e6666dc5a7}{}\index{btree.\+c@{btree.\+c}!rb\+\_\+insert@{rb\+\_\+insert}}
+\index{rb\+\_\+insert@{rb\+\_\+insert}!btree.\+c@{btree.\+c}}
+\subsubsection[{rb\+\_\+insert(rb\+\_\+tree\+\_\+t $\ast$tree, void $\ast$key, void $\ast$info)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rb\+\_\+node\+\_\+t}$\ast$ rb\+\_\+insert (
+\begin{DoxyParamCaption}
+\item[{{\bf rb\+\_\+tree\+\_\+t} $\ast$}]{tree, }
+\item[{void $\ast$}]{key, }
+\item[{void $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{btree_8c_ad2a9f4f43ffa7dae8fb192e6666dc5a7}
+\hypertarget{btree_8c_ab754e494e58407e4db58844c6570247d}{}\index{btree.\+c@{btree.\+c}!right\+\_\+rotate@{right\+\_\+rotate}}
+\index{right\+\_\+rotate@{right\+\_\+rotate}!btree.\+c@{btree.\+c}}
+\subsubsection[{right\+\_\+rotate(rb\+\_\+tree\+\_\+t $\ast$tree, rb\+\_\+node\+\_\+t $\ast$y)}]{\setlength{\rightskip}{0pt plus 5cm}static void right\+\_\+rotate (
+\begin{DoxyParamCaption}
+\item[{{\bf rb\+\_\+tree\+\_\+t} $\ast$}]{tree, }
+\item[{{\bf rb\+\_\+node\+\_\+t} $\ast$}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{btree_8c_ab754e494e58407e4db58844c6570247d}
+\hypertarget{btree_8c_aa6524c175626ecc0e37c1dde283b9d19}{}\index{btree.\+c@{btree.\+c}!tree\+\_\+dest\+\_\+helper@{tree\+\_\+dest\+\_\+helper}}
+\index{tree\+\_\+dest\+\_\+helper@{tree\+\_\+dest\+\_\+helper}!btree.\+c@{btree.\+c}}
+\subsubsection[{tree\+\_\+dest\+\_\+helper(rb\+\_\+tree\+\_\+t $\ast$tree, rb\+\_\+node\+\_\+t $\ast$x)}]{\setlength{\rightskip}{0pt plus 5cm}void tree\+\_\+dest\+\_\+helper (
+\begin{DoxyParamCaption}
+\item[{{\bf rb\+\_\+tree\+\_\+t} $\ast$}]{tree, }
+\item[{{\bf rb\+\_\+node\+\_\+t} $\ast$}]{x}
+\end{DoxyParamCaption}
+)}\label{btree_8c_aa6524c175626ecc0e37c1dde283b9d19}
+\hypertarget{btree_8c_a1b72a233307c693a2ca1dba03a02f20d}{}\index{btree.\+c@{btree.\+c}!tree\+\_\+find@{tree\+\_\+find}}
+\index{tree\+\_\+find@{tree\+\_\+find}!btree.\+c@{btree.\+c}}
+\subsubsection[{tree\+\_\+find(rb\+\_\+tree\+\_\+t $\ast$tree, void $\ast$q)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rb\+\_\+node\+\_\+t}$\ast$ tree\+\_\+find (
+\begin{DoxyParamCaption}
+\item[{{\bf rb\+\_\+tree\+\_\+t} $\ast$}]{tree, }
+\item[{void $\ast$}]{q}
+\end{DoxyParamCaption}
+)}\label{btree_8c_a1b72a233307c693a2ca1dba03a02f20d}
+\hypertarget{btree_8c_a74ca36e060fe306bc36850c57f80fbc6}{}\index{btree.\+c@{btree.\+c}!tree\+\_\+insert\+\_\+help@{tree\+\_\+insert\+\_\+help}}
+\index{tree\+\_\+insert\+\_\+help@{tree\+\_\+insert\+\_\+help}!btree.\+c@{btree.\+c}}
+\subsubsection[{tree\+\_\+insert\+\_\+help(rb\+\_\+tree\+\_\+t $\ast$tree, rb\+\_\+node\+\_\+t $\ast$z)}]{\setlength{\rightskip}{0pt plus 5cm}static void tree\+\_\+insert\+\_\+help (
+\begin{DoxyParamCaption}
+\item[{{\bf rb\+\_\+tree\+\_\+t} $\ast$}]{tree, }
+\item[{{\bf rb\+\_\+node\+\_\+t} $\ast$}]{z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{btree_8c_a74ca36e060fe306bc36850c57f80fbc6}
+\hypertarget{btree_8c_afb9c340fac77bb881b8c568c2c56d564}{}\index{btree.\+c@{btree.\+c}!tree\+\_\+predecesor@{tree\+\_\+predecesor}}
+\index{tree\+\_\+predecesor@{tree\+\_\+predecesor}!btree.\+c@{btree.\+c}}
+\subsubsection[{tree\+\_\+predecesor(rb\+\_\+tree\+\_\+t $\ast$tree, rb\+\_\+node\+\_\+t $\ast$x)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rb\+\_\+node\+\_\+t}$\ast$ tree\+\_\+predecesor (
+\begin{DoxyParamCaption}
+\item[{{\bf rb\+\_\+tree\+\_\+t} $\ast$}]{tree, }
+\item[{{\bf rb\+\_\+node\+\_\+t} $\ast$}]{x}
+\end{DoxyParamCaption}
+)}\label{btree_8c_afb9c340fac77bb881b8c568c2c56d564}
+\hypertarget{btree_8c_a5fc2794308c991ab17abd5b80733abcb}{}\index{btree.\+c@{btree.\+c}!tree\+\_\+successor@{tree\+\_\+successor}}
+\index{tree\+\_\+successor@{tree\+\_\+successor}!btree.\+c@{btree.\+c}}
+\subsubsection[{tree\+\_\+successor(rb\+\_\+tree\+\_\+t $\ast$tree, rb\+\_\+node\+\_\+t $\ast$x)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rb\+\_\+node\+\_\+t}$\ast$ tree\+\_\+successor (
+\begin{DoxyParamCaption}
+\item[{{\bf rb\+\_\+tree\+\_\+t} $\ast$}]{tree, }
+\item[{{\bf rb\+\_\+node\+\_\+t} $\ast$}]{x}
+\end{DoxyParamCaption}
+)}\label{btree_8c_a5fc2794308c991ab17abd5b80733abcb}

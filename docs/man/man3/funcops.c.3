@@ -1,0 +1,62 @@
+.TH "funcops.c" 3 "Mon Jan 4 2016" "Version v0.2" "libds" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+funcops.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'funcops\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBuint32_hash_function\fP (void *integer)"
+.br
+.RI "\fIConverts uint32_t passed in as void* into hash\&. \fP"
+.ti -1c
+.RI "bool \fBuint32_eq_function\fP (void *a, void *b)"
+.br
+.ti -1c
+.RI "uint32_t \fBuint64_hash_function\fP (void *integer)"
+.br
+.RI "\fIConverts uint64_t passed in as void* into hash\&. \fP"
+.ti -1c
+.RI "bool \fBuint64_eq_function\fP (void *a, void *b)"
+.br
+.ti -1c
+.RI "uint32_t \fBstring_hash_function\fP (void *string)"
+.br
+.RI "\fIConverts char* passed in as void* into hash\&. \fP"
+.ti -1c
+.RI "bool \fBstring_eq_function\fP (void *a, void *b)"
+.br
+.RI "\fICompares two char* values passed in as void*\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "bool string_eq_function (void * a, void * b)"
+
+.PP
+Compares two char* values passed in as void*\&. Uses strcmp\&. 
+.SS "uint32_t string_hash_function (void * string)"
+
+.PP
+Converts char* passed in as void* into hash\&. Hash type is uint32_t\&. 
+.SS "bool uint32_eq_function (void * a, void * b)"
+Compares two uint32_t values passed in as void* 
+.SS "uint32_t uint32_hash_function (void * integer)"
+
+.PP
+Converts uint32_t passed in as void* into hash\&. Hash type is uint32_t\&. 
+.SS "bool uint64_eq_function (void * a, void * b)"
+Compares two uint64_t values passed in as void* 
+.SS "uint32_t uint64_hash_function (void * integer)"
+
+.PP
+Converts uint64_t passed in as void* into hash\&. Hash type is uint32_t\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libds from the source code\&.

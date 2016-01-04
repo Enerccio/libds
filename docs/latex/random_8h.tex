@@ -1,0 +1,61 @@
+\hypertarget{random_8h}{}\section{random.\+h File Reference}
+\label{random_8h}\index{random.\+h@{random.\+h}}
+{\ttfamily \#include \char`\"{}\+\_\+commons.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structrandom__generator}{random\+\_\+generator}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structrandom__generator}{random\+\_\+generator} \hyperlink{random_8h_ac7dfdeaa6af412b1f3c88f7b8ef94c1a}{rg\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{random_8h_ac7dfdeaa6af412b1f3c88f7b8ef94c1a}{rg\+\_\+t} \hyperlink{random_8h_ad9e6ff41a6911d5bedd47bf46b2618ef}{rg\+\_\+create\+\_\+random\+\_\+generator} (uint64\+\_\+t seed)
+\begin{DoxyCompactList}\small\item\em Creates random generator state. \end{DoxyCompactList}\item 
+uint64\+\_\+t \hyperlink{random_8h_aa57a33dfdfb95e1d987de498616331c4}{rg\+\_\+next\+\_\+uint} (\hyperlink{random_8h_ac7dfdeaa6af412b1f3c88f7b8ef94c1a}{rg\+\_\+t} $\ast$rg)
+\begin{DoxyCompactList}\small\item\em Returns next random unsigned int value. \end{DoxyCompactList}\item 
+uint64\+\_\+t \hyperlink{random_8h_af4f0f766337165262fd42b6afe935596}{rg\+\_\+next\+\_\+uint\+\_\+l} (\hyperlink{random_8h_ac7dfdeaa6af412b1f3c88f7b8ef94c1a}{rg\+\_\+t} $\ast$rg, uint64\+\_\+t limit)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{random_8h_ac7dfdeaa6af412b1f3c88f7b8ef94c1a}{}\index{random.\+h@{random.\+h}!rg\+\_\+t@{rg\+\_\+t}}
+\index{rg\+\_\+t@{rg\+\_\+t}!random.\+h@{random.\+h}}
+\subsubsection[{rg\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf random\+\_\+generator}  {\bf rg\+\_\+t}}\label{random_8h_ac7dfdeaa6af412b1f3c88f7b8ef94c1a}
+Random generator state. 
+
+\subsection{Function Documentation}
+\hypertarget{random_8h_ad9e6ff41a6911d5bedd47bf46b2618ef}{}\index{random.\+h@{random.\+h}!rg\+\_\+create\+\_\+random\+\_\+generator@{rg\+\_\+create\+\_\+random\+\_\+generator}}
+\index{rg\+\_\+create\+\_\+random\+\_\+generator@{rg\+\_\+create\+\_\+random\+\_\+generator}!random.\+h@{random.\+h}}
+\subsubsection[{rg\+\_\+create\+\_\+random\+\_\+generator(uint64\+\_\+t seed)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rg\+\_\+t} rg\+\_\+create\+\_\+random\+\_\+generator (
+\begin{DoxyParamCaption}
+\item[{uint64\+\_\+t}]{seed}
+\end{DoxyParamCaption}
+)}\label{random_8h_ad9e6ff41a6911d5bedd47bf46b2618ef}
+
+
+Creates random generator state. 
+
+Random generator state is seeded with provided seed. \hypertarget{random_8h_aa57a33dfdfb95e1d987de498616331c4}{}\index{random.\+h@{random.\+h}!rg\+\_\+next\+\_\+uint@{rg\+\_\+next\+\_\+uint}}
+\index{rg\+\_\+next\+\_\+uint@{rg\+\_\+next\+\_\+uint}!random.\+h@{random.\+h}}
+\subsubsection[{rg\+\_\+next\+\_\+uint(rg\+\_\+t $\ast$rg)}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t rg\+\_\+next\+\_\+uint (
+\begin{DoxyParamCaption}
+\item[{{\bf rg\+\_\+t} $\ast$}]{rg}
+\end{DoxyParamCaption}
+)}\label{random_8h_aa57a33dfdfb95e1d987de498616331c4}
+
+
+Returns next random unsigned int value. 
+
+Int type is ruint\+\_\+t, which is register sized uint. \hypertarget{random_8h_af4f0f766337165262fd42b6afe935596}{}\index{random.\+h@{random.\+h}!rg\+\_\+next\+\_\+uint\+\_\+l@{rg\+\_\+next\+\_\+uint\+\_\+l}}
+\index{rg\+\_\+next\+\_\+uint\+\_\+l@{rg\+\_\+next\+\_\+uint\+\_\+l}!random.\+h@{random.\+h}}
+\subsubsection[{rg\+\_\+next\+\_\+uint\+\_\+l(rg\+\_\+t $\ast$rg, uint64\+\_\+t limit)}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t rg\+\_\+next\+\_\+uint\+\_\+l (
+\begin{DoxyParamCaption}
+\item[{{\bf rg\+\_\+t} $\ast$}]{rg, }
+\item[{uint64\+\_\+t}]{limit}
+\end{DoxyParamCaption}
+)}\label{random_8h_af4f0f766337165262fd42b6afe935596}

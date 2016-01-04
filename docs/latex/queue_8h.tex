@@ -1,0 +1,167 @@
+\hypertarget{queue_8h}{}\section{queue.\+h File Reference}
+\label{queue_8h}\index{queue.\+h@{queue.\+h}}
+{\ttfamily \#include \char`\"{}\+\_\+commons.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}funcops.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structqueue__element}{queue\+\_\+element}
+\item 
+struct \hyperlink{structqueue__pool}{queue\+\_\+pool}
+\item 
+struct \hyperlink{structqueue}{queue}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structqueue__element}{queue\+\_\+element} \hyperlink{queue_8h_a518d6a11a5588433b3b1bd1303df78ad}{queue\+\_\+element\+\_\+t}
+\item 
+typedef struct \hyperlink{structqueue__pool}{queue\+\_\+pool} \hyperlink{queue_8h_afc621ef1f4f6cf985c1e83a4c67b2dfd}{queue\+\_\+pool\+\_\+t}
+\item 
+typedef struct \hyperlink{structqueue}{queue} \hyperlink{queue_8h_a410790d8f6c9a3ad1a3dbdca2e09d16a}{queue\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{queue_8h_a410790d8f6c9a3ad1a3dbdca2e09d16a}{queue\+\_\+t} $\ast$ \hyperlink{queue_8h_a8cbb47f21eedee20759ca5bbccad8ddb}{create\+\_\+queue} ()
+\begin{DoxyCompactList}\small\item\em Creates empty queue. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{queue_8h_abf41ee5b3448983fa265b645c7319e4a}{queue\+\_\+pop} (\hyperlink{queue_8h_a410790d8f6c9a3ad1a3dbdca2e09d16a}{queue\+\_\+t} $\ast$\hyperlink{structqueue}{queue})
+\begin{DoxyCompactList}\small\item\em Removes head of the queue and returns it. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{queue_8h_aed6a4907d1ae449364e365567a397e12}{queue\+\_\+peek} (\hyperlink{queue_8h_a410790d8f6c9a3ad1a3dbdca2e09d16a}{queue\+\_\+t} $\ast$\hyperlink{structqueue}{queue})
+\begin{DoxyCompactList}\small\item\em Returns head of the queue without removing it. \end{DoxyCompactList}\item 
+bool \hyperlink{queue_8h_a0437542cf85401c52367012eda9dce36}{queue\+\_\+has\+\_\+elements} (\hyperlink{queue_8h_a410790d8f6c9a3ad1a3dbdca2e09d16a}{queue\+\_\+t} $\ast$\hyperlink{structqueue}{queue})
+\item 
+bool \hyperlink{queue_8h_a44df19cf583022ff6575e9c9d1c694b3}{queue\+\_\+push} (\hyperlink{queue_8h_a410790d8f6c9a3ad1a3dbdca2e09d16a}{queue\+\_\+t} $\ast$\hyperlink{structqueue}{queue}, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Adds element to the queue. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{queue_8h_ae30f7440c474f8cff33d3e6a99e73463}{queue\+\_\+size} (\hyperlink{queue_8h_a410790d8f6c9a3ad1a3dbdca2e09d16a}{queue\+\_\+t} $\ast$\hyperlink{structqueue}{queue})
+\item 
+void \hyperlink{queue_8h_a47f54ddd98dde2ef9cf3a137fd105343}{free\+\_\+queue} (\hyperlink{queue_8h_a410790d8f6c9a3ad1a3dbdca2e09d16a}{queue\+\_\+t} $\ast$\hyperlink{structqueue}{queue})
+\begin{DoxyCompactList}\small\item\em Deallocates queue. \end{DoxyCompactList}\item 
+\hyperlink{queue_8h_a410790d8f6c9a3ad1a3dbdca2e09d16a}{queue\+\_\+t} $\ast$ \hyperlink{queue_8h_a9e79b23856aff8b281606d84e62cd718}{create\+\_\+queue\+\_\+static} (uint32\+\_\+t queue\+\_\+max\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Creates static empty queue with max\+\_\+queue elements. \end{DoxyCompactList}\item 
+void \hyperlink{queue_8h_a867feb45f953ef24ec25ad4beef8aba7}{queue\+\_\+remove} (void $\ast$element, \hyperlink{queue_8h_a410790d8f6c9a3ad1a3dbdca2e09d16a}{queue\+\_\+t} $\ast$\hyperlink{structqueue}{queue})
+\begin{DoxyCompactList}\small\item\em Removes element from queue at any position. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{queue_8h_a861d336cd24331ade5cbafe6705f97d2}{queue\+\_\+find\+\_\+by\+\_\+predicate} (void $\ast$data, \hyperlink{funcops_8h_aae786e6df58b8cbb8b46a1fc33fb057c}{search\+\_\+predicate\+\_\+t} func, \hyperlink{queue_8h_a410790d8f6c9a3ad1a3dbdca2e09d16a}{queue\+\_\+t} $\ast$\hyperlink{structqueue}{queue})
+\begin{DoxyCompactList}\small\item\em Returns element from queue found by search predicate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{queue_8h_a518d6a11a5588433b3b1bd1303df78ad}{}\index{queue.\+h@{queue.\+h}!queue\+\_\+element\+\_\+t@{queue\+\_\+element\+\_\+t}}
+\index{queue\+\_\+element\+\_\+t@{queue\+\_\+element\+\_\+t}!queue.\+h@{queue.\+h}}
+\subsubsection[{queue\+\_\+element\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf queue\+\_\+element} {\bf queue\+\_\+element\+\_\+t}}\label{queue_8h_a518d6a11a5588433b3b1bd1303df78ad}
+\hypertarget{queue_8h_afc621ef1f4f6cf985c1e83a4c67b2dfd}{}\index{queue.\+h@{queue.\+h}!queue\+\_\+pool\+\_\+t@{queue\+\_\+pool\+\_\+t}}
+\index{queue\+\_\+pool\+\_\+t@{queue\+\_\+pool\+\_\+t}!queue.\+h@{queue.\+h}}
+\subsubsection[{queue\+\_\+pool\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf queue\+\_\+pool}  {\bf queue\+\_\+pool\+\_\+t}}\label{queue_8h_afc621ef1f4f6cf985c1e83a4c67b2dfd}
+\hypertarget{queue_8h_a410790d8f6c9a3ad1a3dbdca2e09d16a}{}\index{queue.\+h@{queue.\+h}!queue\+\_\+t@{queue\+\_\+t}}
+\index{queue\+\_\+t@{queue\+\_\+t}!queue.\+h@{queue.\+h}}
+\subsubsection[{queue\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf queue}  {\bf queue\+\_\+t}}\label{queue_8h_a410790d8f6c9a3ad1a3dbdca2e09d16a}
+
+
+\subsection{Function Documentation}
+\hypertarget{queue_8h_a8cbb47f21eedee20759ca5bbccad8ddb}{}\index{queue.\+h@{queue.\+h}!create\+\_\+queue@{create\+\_\+queue}}
+\index{create\+\_\+queue@{create\+\_\+queue}!queue.\+h@{queue.\+h}}
+\subsubsection[{create\+\_\+queue()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf queue\+\_\+t}$\ast$ create\+\_\+queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{queue_8h_a8cbb47f21eedee20759ca5bbccad8ddb}
+
+
+Creates empty queue. 
+
+This queue can taky any amount of elements and will resize itself when necessary. \hypertarget{queue_8h_a9e79b23856aff8b281606d84e62cd718}{}\index{queue.\+h@{queue.\+h}!create\+\_\+queue\+\_\+static@{create\+\_\+queue\+\_\+static}}
+\index{create\+\_\+queue\+\_\+static@{create\+\_\+queue\+\_\+static}!queue.\+h@{queue.\+h}}
+\subsubsection[{create\+\_\+queue\+\_\+static(uint32\+\_\+t queue\+\_\+max\+\_\+size)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf queue\+\_\+t}$\ast$ create\+\_\+queue\+\_\+static (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{max\+\_\+queue}
+\end{DoxyParamCaption}
+)}\label{queue_8h_a9e79b23856aff8b281606d84e62cd718}
+
+
+Creates static empty queue with max\+\_\+queue elements. 
+
+This queue can hold at most max\+\_\+queue elements. \hypertarget{queue_8h_a47f54ddd98dde2ef9cf3a137fd105343}{}\index{queue.\+h@{queue.\+h}!free\+\_\+queue@{free\+\_\+queue}}
+\index{free\+\_\+queue@{free\+\_\+queue}!queue.\+h@{queue.\+h}}
+\subsubsection[{free\+\_\+queue(queue\+\_\+t $\ast$queue)}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+queue (
+\begin{DoxyParamCaption}
+\item[{{\bf queue\+\_\+t} $\ast$}]{queue}
+\end{DoxyParamCaption}
+)}\label{queue_8h_a47f54ddd98dde2ef9cf3a137fd105343}
+
+
+Deallocates queue. 
+
+Removes all memory used by this queue. Elements in the queue are N\+O\+T deallocated. \hypertarget{queue_8h_a861d336cd24331ade5cbafe6705f97d2}{}\index{queue.\+h@{queue.\+h}!queue\+\_\+find\+\_\+by\+\_\+predicate@{queue\+\_\+find\+\_\+by\+\_\+predicate}}
+\index{queue\+\_\+find\+\_\+by\+\_\+predicate@{queue\+\_\+find\+\_\+by\+\_\+predicate}!queue.\+h@{queue.\+h}}
+\subsubsection[{queue\+\_\+find\+\_\+by\+\_\+predicate(void $\ast$data, search\+\_\+predicate\+\_\+t func, queue\+\_\+t $\ast$queue)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ queue\+\_\+find\+\_\+by\+\_\+predicate (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data, }
+\item[{{\bf search\+\_\+predicate\+\_\+t}}]{func, }
+\item[{{\bf queue\+\_\+t} $\ast$}]{queue}
+\end{DoxyParamCaption}
+)}\label{queue_8h_a861d336cd24331ade5cbafe6705f97d2}
+
+
+Returns element from queue found by search predicate. 
+
+For more info, see array. \hypertarget{queue_8h_a0437542cf85401c52367012eda9dce36}{}\index{queue.\+h@{queue.\+h}!queue\+\_\+has\+\_\+elements@{queue\+\_\+has\+\_\+elements}}
+\index{queue\+\_\+has\+\_\+elements@{queue\+\_\+has\+\_\+elements}!queue.\+h@{queue.\+h}}
+\subsubsection[{queue\+\_\+has\+\_\+elements(queue\+\_\+t $\ast$queue)}]{\setlength{\rightskip}{0pt plus 5cm}bool queue\+\_\+has\+\_\+elements (
+\begin{DoxyParamCaption}
+\item[{{\bf queue\+\_\+t} $\ast$}]{queue}
+\end{DoxyParamCaption}
+)}\label{queue_8h_a0437542cf85401c52367012eda9dce36}
+Returns true if queue is not empty. \hypertarget{queue_8h_aed6a4907d1ae449364e365567a397e12}{}\index{queue.\+h@{queue.\+h}!queue\+\_\+peek@{queue\+\_\+peek}}
+\index{queue\+\_\+peek@{queue\+\_\+peek}!queue.\+h@{queue.\+h}}
+\subsubsection[{queue\+\_\+peek(queue\+\_\+t $\ast$queue)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ queue\+\_\+peek (
+\begin{DoxyParamCaption}
+\item[{{\bf queue\+\_\+t} $\ast$}]{queue}
+\end{DoxyParamCaption}
+)}\label{queue_8h_aed6a4907d1ae449364e365567a397e12}
+
+
+Returns head of the queue without removing it. 
+
+Returns N\+U\+L\+L if queue is empty. \hypertarget{queue_8h_abf41ee5b3448983fa265b645c7319e4a}{}\index{queue.\+h@{queue.\+h}!queue\+\_\+pop@{queue\+\_\+pop}}
+\index{queue\+\_\+pop@{queue\+\_\+pop}!queue.\+h@{queue.\+h}}
+\subsubsection[{queue\+\_\+pop(queue\+\_\+t $\ast$queue)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ queue\+\_\+pop (
+\begin{DoxyParamCaption}
+\item[{{\bf queue\+\_\+t} $\ast$}]{queue}
+\end{DoxyParamCaption}
+)}\label{queue_8h_abf41ee5b3448983fa265b645c7319e4a}
+
+
+Removes head of the queue and returns it. 
+
+Returns N\+U\+L\+L if queue is empty. \hypertarget{queue_8h_a44df19cf583022ff6575e9c9d1c694b3}{}\index{queue.\+h@{queue.\+h}!queue\+\_\+push@{queue\+\_\+push}}
+\index{queue\+\_\+push@{queue\+\_\+push}!queue.\+h@{queue.\+h}}
+\subsubsection[{queue\+\_\+push(queue\+\_\+t $\ast$queue, void $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}bool queue\+\_\+push (
+\begin{DoxyParamCaption}
+\item[{{\bf queue\+\_\+t} $\ast$}]{queue, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{queue_8h_a44df19cf583022ff6575e9c9d1c694b3}
+
+
+Adds element to the queue. 
+
+Element is put at the end of the queue. \hypertarget{queue_8h_a867feb45f953ef24ec25ad4beef8aba7}{}\index{queue.\+h@{queue.\+h}!queue\+\_\+remove@{queue\+\_\+remove}}
+\index{queue\+\_\+remove@{queue\+\_\+remove}!queue.\+h@{queue.\+h}}
+\subsubsection[{queue\+\_\+remove(void $\ast$element, queue\+\_\+t $\ast$queue)}]{\setlength{\rightskip}{0pt plus 5cm}void queue\+\_\+remove (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{element, }
+\item[{{\bf queue\+\_\+t} $\ast$}]{queue}
+\end{DoxyParamCaption}
+)}\label{queue_8h_a867feb45f953ef24ec25ad4beef8aba7}
+
+
+Removes element from queue at any position. 
+
+Element is compared via ==. \hypertarget{queue_8h_ae30f7440c474f8cff33d3e6a99e73463}{}\index{queue.\+h@{queue.\+h}!queue\+\_\+size@{queue\+\_\+size}}
+\index{queue\+\_\+size@{queue\+\_\+size}!queue.\+h@{queue.\+h}}
+\subsubsection[{queue\+\_\+size(queue\+\_\+t $\ast$queue)}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t queue\+\_\+size (
+\begin{DoxyParamCaption}
+\item[{{\bf queue\+\_\+t} $\ast$}]{queue}
+\end{DoxyParamCaption}
+)}\label{queue_8h_ae30f7440c474f8cff33d3e6a99e73463}
+Returns number of elements in the queue. 

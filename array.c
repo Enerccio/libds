@@ -27,7 +27,7 @@
 
 #include "array.h"
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Creates array with ARRAY_STARTING_SIZE preallocation count.
  *
  * Starting allocation size will be set to ARRAY_STARTING_SIZE * sizeof(void*).
@@ -36,7 +36,7 @@ array_t* create_array() {
     return create_array_spec(ARRAY_STARTING_SIZE);
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Creates array with starting_elementa_size preallocation count.
  *
  * Starting allocation size will be set to starting_elementa_size * sizeof(void*).
@@ -56,7 +56,7 @@ array_t* create_array_spec(uint32_t starting_elementa_size) {
     return array;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Adds data on the end of the array.
  *
  * This is O(1) operation most of the time, unless array has to resize, then it
@@ -72,7 +72,7 @@ uint32_t array_push_data(array_t* array, void* data) {
     return array->size-1;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Returns index to the data in the array.
  *
  * Returns -1 if data is not found in the array. Compares data via ==.
@@ -85,7 +85,7 @@ int32_t array_find_data(array_t* array, void* data) {
     return -1;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Inserts data at position.
  *
  * This operation is O(n) at worst case due to shifting. If n == size of array-1,
@@ -120,7 +120,7 @@ void array_insert_at(array_t* array, uint32_t position, void* data) {
     array_push_data(array, prev); // to ensure that we only have one code that will enlarge array
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Returns data at position.
  *
  * Returns NULL if position is larger than size of an array or equal.
@@ -132,7 +132,7 @@ void* array_get_at(array_t* array, uint32_t position) {
     return array->data[position];
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Replaces content at position with data.
  *
  * Does nothing if position is larger than size of an array or equal.
@@ -142,7 +142,7 @@ void array_set_at(array_t* array, uint32_t position, void* data) {
         array->data[position] = data;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Removes item at position.
  *
  * O(n) operation, due to shifting. If position == size of array, it is O(1)
@@ -160,14 +160,14 @@ void array_remove_at(array_t* array, uint32_t position) {
     --array->size;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * Returns number of elements in the array
  ********************************************************************************/
 uint32_t array_get_size(array_t* array) {
     return array->size;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Deallocates all memory used by this array.
  *
  * Elements itself are NOT deallocated!
@@ -177,7 +177,7 @@ void destroy_array(array_t* array) {
     free(array);
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Returns first element that matches predicate.
  *
  * Calls predicate function with each element of an array and with data provided,
@@ -194,7 +194,7 @@ void* array_find_by_pred(array_t* array, search_predicate_t predicate, void* dat
     return NULL;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Returns random element from array.
  *
  * Returns NULL if array is empty.
@@ -206,7 +206,7 @@ void* array_get_random(array_t* array, rg_t* rg) {
     return array->data[idx];
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * Removes all elements from array.
  ********************************************************************************/
 void array_clean(array_t* array) {

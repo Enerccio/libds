@@ -1,0 +1,166 @@
+\hypertarget{hmap_8c}{}\section{hmap.\+c File Reference}
+\label{hmap_8c}\index{hmap.\+c@{hmap.\+c}}
+{\ttfamily \#include \char`\"{}hmap.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$ \hyperlink{hmap_8c_a3469e03dbbce5041c6e919c18c285eb8}{create\+\_\+table} (\hyperlink{funcops_8h_ac6c2c7464b9edfc43bfb8fff933350d9}{hash\+\_\+function\+\_\+t} hash\+\_\+fn, \hyperlink{funcops_8h_a155f33befac21aca576a3062abb121de}{eq\+\_\+function\+\_\+t} cmpr\+\_\+fn)
+\begin{DoxyCompactList}\small\item\em Creates new hash table. \end{DoxyCompactList}\item 
+void \hyperlink{hmap_8c_a0bb51ab86cd7949e0566a477cdaa3474}{destroy\+\_\+table} (\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$table)
+\begin{DoxyCompactList}\small\item\em Deallocates table. \end{DoxyCompactList}\item 
+static \hyperlink{structhash__pair__t}{hash\+\_\+pair\+\_\+t} $\ast$$\ast$ \hyperlink{hmap_8c_adb632f877ecc09102f8898d65d392d3f}{find\+\_\+cell} (\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$table, void $\ast$key, uint32\+\_\+t hashed, bool dont\+\_\+skip\+\_\+deleted)
+\item 
+static void \hyperlink{hmap_8c_a4020b4082436fadaa39d083b0d143a4f}{resize\+\_\+table} (\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$table)
+\item 
+bool \hyperlink{hmap_8c_a8c803a2886b8acf6a62a05dd6e98d147}{table\+\_\+contains} (\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$table, void $\ast$key)
+\item 
+void $\ast$ \hyperlink{hmap_8c_a11cf8cdb0c83b97943d78c1d895194f4}{table\+\_\+get} (\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$table, void $\ast$key)
+\begin{DoxyCompactList}\small\item\em Returns value of key in the table. \end{DoxyCompactList}\item 
+void \hyperlink{hmap_8c_aff494579e5e8f78b98b43640c28f3720}{table\+\_\+set} (\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$table, void $\ast$key, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Sets the key in the table to the data. \end{DoxyCompactList}\item 
+bool \hyperlink{hmap_8c_ac4a8eee366c8c83f8d5b35823a52353d}{table\+\_\+remove} (\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$table, void $\ast$key)
+\begin{DoxyCompactList}\small\item\em Removes key from the table. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{hmap_8c_a9c053d75c63a0db95ea7683bce504af2}{table\+\_\+size} (\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$table)
+\item 
+\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$ \hyperlink{hmap_8c_a7cae5b0759afb8c7aaf20a957877248d}{copy\+\_\+table} (\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$table)
+\item 
+void $\ast$ \hyperlink{hmap_8c_ab91a466df60b262c061de8d7b2defd4e}{hash\+\_\+it\+\_\+next} (\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$table, \hyperlink{hmap_8h_add03f6a45511c3567fa877ddee177e4e}{hash\+\_\+it\+\_\+t} $\ast$iterator)
+\item 
+\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$ \hyperlink{hmap_8c_a7836714071475010e1fe68bc3c2bcd78}{create\+\_\+uint32\+\_\+table} ()
+\item 
+\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$ \hyperlink{hmap_8c_a5c8d3d3aa2a1ac754e6e266364792980}{create\+\_\+uint64\+\_\+table} ()
+\item 
+\hyperlink{structhash__table__t}{hash\+\_\+table\+\_\+t} $\ast$ \hyperlink{hmap_8c_ae798e984793248141ca1b46464b1be20}{create\+\_\+string\+\_\+table} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{hmap_8c_a7cae5b0759afb8c7aaf20a957877248d}{}\index{hmap.\+c@{hmap.\+c}!copy\+\_\+table@{copy\+\_\+table}}
+\index{copy\+\_\+table@{copy\+\_\+table}!hmap.\+c@{hmap.\+c}}
+\subsubsection[{copy\+\_\+table(hash\+\_\+table\+\_\+t $\ast$table)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hash\+\_\+table\+\_\+t}$\ast$ copy\+\_\+table (
+\begin{DoxyParamCaption}
+\item[{{\bf hash\+\_\+table\+\_\+t} $\ast$}]{table}
+\end{DoxyParamCaption}
+)}\label{hmap_8c_a7cae5b0759afb8c7aaf20a957877248d}
+Copies table to another table. \hypertarget{hmap_8c_ae798e984793248141ca1b46464b1be20}{}\index{hmap.\+c@{hmap.\+c}!create\+\_\+string\+\_\+table@{create\+\_\+string\+\_\+table}}
+\index{create\+\_\+string\+\_\+table@{create\+\_\+string\+\_\+table}!hmap.\+c@{hmap.\+c}}
+\subsubsection[{create\+\_\+string\+\_\+table()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hash\+\_\+table\+\_\+t}$\ast$ create\+\_\+string\+\_\+table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{hmap_8c_ae798e984793248141ca1b46464b1be20}
+Creates table for char$\ast$ string keys. \hypertarget{hmap_8c_a3469e03dbbce5041c6e919c18c285eb8}{}\index{hmap.\+c@{hmap.\+c}!create\+\_\+table@{create\+\_\+table}}
+\index{create\+\_\+table@{create\+\_\+table}!hmap.\+c@{hmap.\+c}}
+\subsubsection[{create\+\_\+table(hash\+\_\+function\+\_\+t hash\+\_\+fn, eq\+\_\+function\+\_\+t cmpr\+\_\+fn)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hash\+\_\+table\+\_\+t}$\ast$ create\+\_\+table (
+\begin{DoxyParamCaption}
+\item[{{\bf hash\+\_\+function\+\_\+t}}]{hash\+\_\+fn, }
+\item[{{\bf eq\+\_\+function\+\_\+t}}]{cmpr\+\_\+fn}
+\end{DoxyParamCaption}
+)}\label{hmap_8c_a3469e03dbbce5041c6e919c18c285eb8}
+
+
+Creates new hash table. 
+
+This hash table will use provided hash\+\_\+fn and cmpr\+\_\+fn to hash/compare keys. Default size of inner table is H\+A\+S\+H\+\_\+\+S\+T\+A\+R\+T\+I\+N\+G\+\_\+\+S\+I\+Z\+E. \hypertarget{hmap_8c_a7836714071475010e1fe68bc3c2bcd78}{}\index{hmap.\+c@{hmap.\+c}!create\+\_\+uint32\+\_\+table@{create\+\_\+uint32\+\_\+table}}
+\index{create\+\_\+uint32\+\_\+table@{create\+\_\+uint32\+\_\+table}!hmap.\+c@{hmap.\+c}}
+\subsubsection[{create\+\_\+uint32\+\_\+table()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hash\+\_\+table\+\_\+t}$\ast$ create\+\_\+uint32\+\_\+table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{hmap_8c_a7836714071475010e1fe68bc3c2bcd78}
+Creates table for uint32\+\_\+t keys. \hypertarget{hmap_8c_a5c8d3d3aa2a1ac754e6e266364792980}{}\index{hmap.\+c@{hmap.\+c}!create\+\_\+uint64\+\_\+table@{create\+\_\+uint64\+\_\+table}}
+\index{create\+\_\+uint64\+\_\+table@{create\+\_\+uint64\+\_\+table}!hmap.\+c@{hmap.\+c}}
+\subsubsection[{create\+\_\+uint64\+\_\+table()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hash\+\_\+table\+\_\+t}$\ast$ create\+\_\+uint64\+\_\+table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{hmap_8c_a5c8d3d3aa2a1ac754e6e266364792980}
+Creates table for uint64\+\_\+t keys. \hypertarget{hmap_8c_a0bb51ab86cd7949e0566a477cdaa3474}{}\index{hmap.\+c@{hmap.\+c}!destroy\+\_\+table@{destroy\+\_\+table}}
+\index{destroy\+\_\+table@{destroy\+\_\+table}!hmap.\+c@{hmap.\+c}}
+\subsubsection[{destroy\+\_\+table(hash\+\_\+table\+\_\+t $\ast$table)}]{\setlength{\rightskip}{0pt plus 5cm}void destroy\+\_\+table (
+\begin{DoxyParamCaption}
+\item[{{\bf hash\+\_\+table\+\_\+t} $\ast$}]{table}
+\end{DoxyParamCaption}
+)}\label{hmap_8c_a0bb51ab86cd7949e0566a477cdaa3474}
+
+
+Deallocates table. 
+
+Removes all data from the table and table itself from memory. Will N\+O\+T deallocate table keys nor entries! \hypertarget{hmap_8c_adb632f877ecc09102f8898d65d392d3f}{}\index{hmap.\+c@{hmap.\+c}!find\+\_\+cell@{find\+\_\+cell}}
+\index{find\+\_\+cell@{find\+\_\+cell}!hmap.\+c@{hmap.\+c}}
+\subsubsection[{find\+\_\+cell(hash\+\_\+table\+\_\+t $\ast$table, void $\ast$key, uint32\+\_\+t hashed, bool dont\+\_\+skip\+\_\+deleted)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf hash\+\_\+pair\+\_\+t}$\ast$$\ast$ find\+\_\+cell (
+\begin{DoxyParamCaption}
+\item[{{\bf hash\+\_\+table\+\_\+t} $\ast$}]{table, }
+\item[{void $\ast$}]{key, }
+\item[{uint32\+\_\+t}]{hashed, }
+\item[{bool}]{dont\+\_\+skip\+\_\+deleted}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{hmap_8c_adb632f877ecc09102f8898d65d392d3f}
+Returns cell from the hash table. \hypertarget{hmap_8c_ab91a466df60b262c061de8d7b2defd4e}{}\index{hmap.\+c@{hmap.\+c}!hash\+\_\+it\+\_\+next@{hash\+\_\+it\+\_\+next}}
+\index{hash\+\_\+it\+\_\+next@{hash\+\_\+it\+\_\+next}!hmap.\+c@{hmap.\+c}}
+\subsubsection[{hash\+\_\+it\+\_\+next(hash\+\_\+table\+\_\+t $\ast$table, hash\+\_\+it\+\_\+t $\ast$iterator)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ hash\+\_\+it\+\_\+next (
+\begin{DoxyParamCaption}
+\item[{{\bf hash\+\_\+table\+\_\+t} $\ast$}]{table, }
+\item[{{\bf hash\+\_\+it\+\_\+t} $\ast$}]{iterator}
+\end{DoxyParamCaption}
+)}\label{hmap_8c_ab91a466df60b262c061de8d7b2defd4e}
+Returns value from iterator and moves iterator to next element. \hypertarget{hmap_8c_a4020b4082436fadaa39d083b0d143a4f}{}\index{hmap.\+c@{hmap.\+c}!resize\+\_\+table@{resize\+\_\+table}}
+\index{resize\+\_\+table@{resize\+\_\+table}!hmap.\+c@{hmap.\+c}}
+\subsubsection[{resize\+\_\+table(hash\+\_\+table\+\_\+t $\ast$table)}]{\setlength{\rightskip}{0pt plus 5cm}static void resize\+\_\+table (
+\begin{DoxyParamCaption}
+\item[{{\bf hash\+\_\+table\+\_\+t} $\ast$}]{table}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{hmap_8c_a4020b4082436fadaa39d083b0d143a4f}
+Resizes the hash table to accomodate new elements. \hypertarget{hmap_8c_a8c803a2886b8acf6a62a05dd6e98d147}{}\index{hmap.\+c@{hmap.\+c}!table\+\_\+contains@{table\+\_\+contains}}
+\index{table\+\_\+contains@{table\+\_\+contains}!hmap.\+c@{hmap.\+c}}
+\subsubsection[{table\+\_\+contains(hash\+\_\+table\+\_\+t $\ast$table, void $\ast$key)}]{\setlength{\rightskip}{0pt plus 5cm}bool table\+\_\+contains (
+\begin{DoxyParamCaption}
+\item[{{\bf hash\+\_\+table\+\_\+t} $\ast$}]{table, }
+\item[{void $\ast$}]{key}
+\end{DoxyParamCaption}
+)}\label{hmap_8c_a8c803a2886b8acf6a62a05dd6e98d147}
+Returns whether key is in the table or not. \hypertarget{hmap_8c_a11cf8cdb0c83b97943d78c1d895194f4}{}\index{hmap.\+c@{hmap.\+c}!table\+\_\+get@{table\+\_\+get}}
+\index{table\+\_\+get@{table\+\_\+get}!hmap.\+c@{hmap.\+c}}
+\subsubsection[{table\+\_\+get(hash\+\_\+table\+\_\+t $\ast$table, void $\ast$key)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ table\+\_\+get (
+\begin{DoxyParamCaption}
+\item[{{\bf hash\+\_\+table\+\_\+t} $\ast$}]{table, }
+\item[{void $\ast$}]{key}
+\end{DoxyParamCaption}
+)}\label{hmap_8c_a11cf8cdb0c83b97943d78c1d895194f4}
+
+
+Returns value of key in the table. 
+
+Returns N\+U\+L\+L if key is not in the table. \hypertarget{hmap_8c_ac4a8eee366c8c83f8d5b35823a52353d}{}\index{hmap.\+c@{hmap.\+c}!table\+\_\+remove@{table\+\_\+remove}}
+\index{table\+\_\+remove@{table\+\_\+remove}!hmap.\+c@{hmap.\+c}}
+\subsubsection[{table\+\_\+remove(hash\+\_\+table\+\_\+t $\ast$table, void $\ast$key)}]{\setlength{\rightskip}{0pt plus 5cm}bool table\+\_\+remove (
+\begin{DoxyParamCaption}
+\item[{{\bf hash\+\_\+table\+\_\+t} $\ast$}]{table, }
+\item[{void $\ast$}]{key}
+\end{DoxyParamCaption}
+)}\label{hmap_8c_ac4a8eee366c8c83f8d5b35823a52353d}
+
+
+Removes key from the table. 
+
+Returns true if operation was done successfully, false if there was no such key. \hypertarget{hmap_8c_aff494579e5e8f78b98b43640c28f3720}{}\index{hmap.\+c@{hmap.\+c}!table\+\_\+set@{table\+\_\+set}}
+\index{table\+\_\+set@{table\+\_\+set}!hmap.\+c@{hmap.\+c}}
+\subsubsection[{table\+\_\+set(hash\+\_\+table\+\_\+t $\ast$table, void $\ast$key, void $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void table\+\_\+set (
+\begin{DoxyParamCaption}
+\item[{{\bf hash\+\_\+table\+\_\+t} $\ast$}]{table, }
+\item[{void $\ast$}]{key, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{hmap_8c_aff494579e5e8f78b98b43640c28f3720}
+
+
+Sets the key in the table to the data. 
+
+Will remove old key-\/data pair if it exists (does not deallocate old data value!). \hypertarget{hmap_8c_a9c053d75c63a0db95ea7683bce504af2}{}\index{hmap.\+c@{hmap.\+c}!table\+\_\+size@{table\+\_\+size}}
+\index{table\+\_\+size@{table\+\_\+size}!hmap.\+c@{hmap.\+c}}
+\subsubsection[{table\+\_\+size(hash\+\_\+table\+\_\+t $\ast$table)}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t table\+\_\+size (
+\begin{DoxyParamCaption}
+\item[{{\bf hash\+\_\+table\+\_\+t} $\ast$}]{table}
+\end{DoxyParamCaption}
+)}\label{hmap_8c_a9c053d75c63a0db95ea7683bce504af2}
+Returns number of elements in the table. 

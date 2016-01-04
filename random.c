@@ -26,7 +26,7 @@
  */
 #include "random.h"
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Creates random generator state.
  *
  * Random generator state is seeded with provided seed.
@@ -38,7 +38,7 @@ rg_t rg_create_random_generator(uint64_t seed) {
     return rg;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Returns next random unsigned int value.
  *
  * Int type is ruint_t, which is register sized uint.
@@ -52,7 +52,7 @@ ruint_t rg_next_uint(rg_t* rg) {
     return rg->state[1] + y;
 }
 
-/******************************************************************************//*
+/******************************************************************************//**
  * \brief Returns next random unsigned int from 0 to limit.
  *
  * Int type is ruint_t, which is register sized uint.

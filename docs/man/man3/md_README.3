@@ -1,0 +1,54 @@
+.TH "md_README" 3 "Mon Jan 4 2016" "Version v0.2" "libds" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_README \- libds - datastructures 
+\fClibds\fP is a library providing simple datastructures\&. It is designed to be portable (to the point only requiring memory allocation and ffreestanding environment)\&.
+.PP
+.SS "Provided data structures"
+.PP
+.IP "\(bu" 2
+\fC\fBds/random\&.h\fP\fP - random number generator
+.IP "\(bu" 2
+\fC\fBds/array\&.h\fP\fP - resizable array list
+.IP "\(bu" 2
+\fC\fBds/btree\&.h\fP\fP - ballanced tree (red/black tree)
+.IP "\(bu" 2
+\fC\fBds/hmap\&.h\fP\fP - hashmap
+.IP "\(bu" 2
+\fC\fBds/queue\&.h\fP\fP - (FIFO) queue
+.IP "\(bu" 2
+\fC\fBds/funcops\&.h\fP\fP - standard function interfaces used by previous data structures (along with some defined concrete functions)
+.PP
+.PP
+.SS "Requirements"
+.PP
+\fClibds\fP requires these headers to be present at build environment:
+.PP
+.IP "\(bu" 2
+\fC<stdbool\&.h>\fP
+.IP "\(bu" 2
+\fC<stddef\&.h>\fP
+.IP "\(bu" 2
+\fC<stdint\&.h>\fP
+.PP
+.PP
+\fClibds\fP also requires these extern functions:
+.PP
+.IP "\(bu" 2
+\fCextern void* \fBmalloc(size_t n)\fP\fP
+.IP "\(bu" 2
+\fCextern void* \fBcalloc(size_t num, size_t n)\fP\fP
+.IP "\(bu" 2
+\fCextern void* \fBrealloc(void* a, size_t n)\fP\fP
+.IP "\(bu" 2
+\fCextern void \fBfree(void* a)\fP\fP
+.IP "\(bu" 2
+\fCextern int \fBstrcmp(const char* a, const char* b)\fP\fP
+.IP "\(bu" 2
+\fCextern void* \fBmemset(void* c, int v, size_t s)\fP\fP
+.PP
+.PP
+.SS "Building libds"
+.PP
+To build libds, simply invoke \fCmake all\fP in the root directory\&. You will need to provide suitable \fCSYSROOT\fP argument or a \fCPREFIX\fP argument\&. \fCINCLUDE\fP argument can be overwritten to change where headers will be copied to (they will always be in \fCINCLUDE\fP/\fCds\fP directory)\&. 

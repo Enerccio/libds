@@ -1,0 +1,84 @@
+.TH "_commons.h" 3 "Mon Jan 4 2016" "Version v0.2" "libds" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_commons.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include <stddef\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBREGISTER_UINT_TYPE\fP   uint64_t"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef \fBREGISTER_UINT_TYPE\fP \fBruint_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void * \fBmalloc\fP (size_t n)"
+.br
+.ti -1c
+.RI "void * \fBcalloc\fP (size_t num, size_t n)"
+.br
+.ti -1c
+.RI "void * \fBrealloc\fP (void *a, size_t n)"
+.br
+.ti -1c
+.RI "void \fBfree\fP (void *a)"
+.br
+.ti -1c
+.RI "int \fBstrcmp\fP (const char *a, const char *b)"
+.br
+.ti -1c
+.RI "void * \fBmemset\fP (void *c, int v, size_t s)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define REGISTER_UINT_TYPE   uint64_t"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef \fBREGISTER_UINT_TYPE\fP \fBruint_t\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "void* calloc (size_t num, size_t n)"
+
+.SS "void free (void * a)"
+
+.SS "void* malloc (size_t n)"
+The MIT License (MIT) Copyright (c) 2015 Peter Vanusanik admin@en-circle.com
+.PP
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+.PP
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software\&.
+.PP
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT\&. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE\&.
+.PP
+\fB_commons\&.h\fP Created on: Jan 4, 2016 Author: Peter Vanusanik Contents: 
+.SS "void* memset (void * c, int v, size_t s)"
+
+.SS "void* realloc (void * a, size_t n)"
+
+.SS "int strcmp (const char * a, const char * b)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libds from the source code\&.

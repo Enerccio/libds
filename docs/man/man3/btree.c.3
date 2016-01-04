@@ -1,0 +1,80 @@
+.TH "btree.c" 3 "Mon Jan 4 2016" "Version v0.2" "libds" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+btree.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'btree\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBrb_tree_t\fP * \fBrb_create_tree\fP (\fBcmp_func_t\fP CompFunc, \fBkey_deallocator_func_t\fP DestFunc, \fBvalue_deallocator_func_t\fP InfoDestFunc)"
+.br
+.ti -1c
+.RI "static void \fBleft_rotate\fP (\fBrb_tree_t\fP *tree, \fBrb_node_t\fP *x)"
+.br
+.ti -1c
+.RI "static void \fBright_rotate\fP (\fBrb_tree_t\fP *tree, \fBrb_node_t\fP *y)"
+.br
+.ti -1c
+.RI "static void \fBtree_insert_help\fP (\fBrb_tree_t\fP *tree, \fBrb_node_t\fP *z)"
+.br
+.ti -1c
+.RI "\fBrb_node_t\fP * \fBrb_insert\fP (\fBrb_tree_t\fP *tree, void *key, void *info)"
+.br
+.ti -1c
+.RI "\fBrb_node_t\fP * \fBtree_successor\fP (\fBrb_tree_t\fP *tree, \fBrb_node_t\fP *x)"
+.br
+.ti -1c
+.RI "\fBrb_node_t\fP * \fBtree_predecesor\fP (\fBrb_tree_t\fP *tree, \fBrb_node_t\fP *x)"
+.br
+.ti -1c
+.RI "void \fBtree_dest_helper\fP (\fBrb_tree_t\fP *tree, \fBrb_node_t\fP *x)"
+.br
+.ti -1c
+.RI "void \fBrb_destroy\fP (\fBrb_tree_t\fP *tree)"
+.br
+.ti -1c
+.RI "\fBrb_node_t\fP * \fBtree_find\fP (\fBrb_tree_t\fP *tree, void *q)"
+.br
+.ti -1c
+.RI "static void \fBrb_delete_fixup\fP (\fBrb_tree_t\fP *tree, \fBrb_node_t\fP *x)"
+.br
+.ti -1c
+.RI "void \fBrb_delete\fP (\fBrb_tree_t\fP *tree, \fBrb_node_t\fP *z)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "static void left_rotate (\fBrb_tree_t\fP * tree, \fBrb_node_t\fP * x)\fC [static]\fP"
+
+.SS "\fBrb_tree_t\fP* rb_create_tree (\fBcmp_func_t\fP CompFunc, \fBkey_deallocator_func_t\fP DestFunc, \fBvalue_deallocator_func_t\fP InfoDestFunc)"
+
+.SS "void rb_delete (\fBrb_tree_t\fP * tree, \fBrb_node_t\fP * z)"
+
+.SS "static void rb_delete_fixup (\fBrb_tree_t\fP * tree, \fBrb_node_t\fP * x)\fC [static]\fP"
+
+.SS "void rb_destroy (\fBrb_tree_t\fP * tree)"
+
+.SS "\fBrb_node_t\fP* rb_insert (\fBrb_tree_t\fP * tree, void * key, void * info)"
+
+.SS "static void right_rotate (\fBrb_tree_t\fP * tree, \fBrb_node_t\fP * y)\fC [static]\fP"
+
+.SS "void tree_dest_helper (\fBrb_tree_t\fP * tree, \fBrb_node_t\fP * x)"
+
+.SS "\fBrb_node_t\fP* tree_find (\fBrb_tree_t\fP * tree, void * q)"
+
+.SS "static void tree_insert_help (\fBrb_tree_t\fP * tree, \fBrb_node_t\fP * z)\fC [static]\fP"
+
+.SS "\fBrb_node_t\fP* tree_predecesor (\fBrb_tree_t\fP * tree, \fBrb_node_t\fP * x)"
+
+.SS "\fBrb_node_t\fP* tree_successor (\fBrb_tree_t\fP * tree, \fBrb_node_t\fP * x)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libds from the source code\&.

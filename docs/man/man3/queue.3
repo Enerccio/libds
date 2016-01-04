@@ -1,0 +1,45 @@
+.TH "queue" 3 "Mon Jan 4 2016" "Version v0.2" "libds" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+queue \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <queue\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBis_static\fP"
+.br
+.ti -1c
+.RI "\fBqueue_element_t\fP * \fBfirst\fP"
+.br
+.ti -1c
+.RI "\fBqueue_element_t\fP * \fBlast\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBsize\fP"
+.br
+.ti -1c
+.RI "\fBqueue_pool_t\fP \fBqueue_pool\fP"
+.br
+.in -1c
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBqueue_element_t\fP* queue::first"
+First element of queue 
+.SS "bool queue::is_static"
+Whether queue can be enlared after initial allocation 
+.SS "\fBqueue_element_t\fP* queue::last"
+Last element of queue 
+.SS "\fBqueue_pool_t\fP queue::queue_pool"
+Queue allocation pool 
+.SS "uint32_t queue::size"
+Number of elements in queue 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libds from the source code\&.

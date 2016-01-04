@@ -1,0 +1,83 @@
+.TH "btree.h" 3 "Mon Jan 4 2016" "Version v0.2" "libds" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+btree.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '_commons\&.h'\fP
+.br
+\fC#include 'funcops\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBrb_node\fP"
+.br
+.ti -1c
+.RI "struct \fBrb_tree\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBrb_node\fP \fBrb_node_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBrb_tree\fP \fBrb_tree_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBrb_tree_t\fP * \fBrb_create_tree\fP (\fBcmp_func_t\fP, \fBkey_deallocator_func_t\fP, \fBvalue_deallocator_func_t\fP)"
+.br
+.ti -1c
+.RI "\fBrb_node_t\fP * \fBrb_insert\fP (\fBrb_tree_t\fP *, void *key, void *info)"
+.br
+.ti -1c
+.RI "\fBrb_node_t\fP * \fBtree_find\fP (\fBrb_tree_t\fP *, void *)"
+.br
+.ti -1c
+.RI "void \fBrb_delete\fP (\fBrb_tree_t\fP *, \fBrb_node_t\fP *)"
+.br
+.ti -1c
+.RI "void \fBrb_destroy\fP (\fBrb_tree_t\fP *)"
+.br
+.ti -1c
+.RI "\fBrb_node_t\fP * \fBtree_predecesor\fP (\fBrb_tree_t\fP *, \fBrb_node_t\fP *)"
+.br
+.ti -1c
+.RI "\fBrb_node_t\fP * \fBtree_successor\fP (\fBrb_tree_t\fP *, \fBrb_node_t\fP *)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBrb_node\fP  \fBrb_node_t\fP"
+
+.SS "typedef struct \fBrb_tree\fP  \fBrb_tree_t\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBrb_tree_t\fP* rb_create_tree (\fBcmp_func_t\fP, \fBkey_deallocator_func_t\fP, \fBvalue_deallocator_func_t\fP)"
+
+.SS "void rb_delete (\fBrb_tree_t\fP *, \fBrb_node_t\fP *)"
+
+.SS "void rb_destroy (\fBrb_tree_t\fP *)"
+
+.SS "\fBrb_node_t\fP* rb_insert (\fBrb_tree_t\fP *, void * key, void * info)"
+
+.SS "\fBrb_node_t\fP* tree_find (\fBrb_tree_t\fP *, void *)"
+
+.SS "\fBrb_node_t\fP* tree_predecesor (\fBrb_tree_t\fP *, \fBrb_node_t\fP *)"
+
+.SS "\fBrb_node_t\fP* tree_successor (\fBrb_tree_t\fP *, \fBrb_node_t\fP *)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libds from the source code\&.

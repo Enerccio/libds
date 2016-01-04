@@ -1,0 +1,48 @@
+.TH "hash_table_t" 3 "Mon Jan 4 2016" "Version v0.2" "libds" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hash_table_t \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hmap\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBhash_pair_t\fP ** \fBhash_table\fP"
+.br
+.ti -1c
+.RI "\fBhash_function_t\fP \fBhash_fn\fP"
+.br
+.ti -1c
+.RI "\fBeq_function_t\fP \fBcmpr_fn\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBlen\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBmax_size\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Hash table 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBeq_function_t\fP hash_table_t::cmpr_fn"
+Compare function 
+.SS "\fBhash_function_t\fP hash_table_t::hash_fn"
+Hash function 
+.SS "\fBhash_pair_t\fP** hash_table_t::hash_table"
+Inner table for hash pairs 
+.SS "uint32_t hash_table_t::len"
+Number of elements in this map 
+.SS "uint32_t hash_table_t::max_size"
+Max number of elements that can be stored in hash_table array 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libds from the source code\&.

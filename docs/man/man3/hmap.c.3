@@ -1,0 +1,105 @@
+.TH "hmap.c" 3 "Mon Jan 4 2016" "Version v0.2" "libds" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hmap.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'hmap\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBhash_table_t\fP * \fBcreate_table\fP (\fBhash_function_t\fP hash_fn, \fBeq_function_t\fP cmpr_fn)"
+.br
+.RI "\fICreates new hash table\&. \fP"
+.ti -1c
+.RI "void \fBdestroy_table\fP (\fBhash_table_t\fP *table)"
+.br
+.RI "\fIDeallocates table\&. \fP"
+.ti -1c
+.RI "static \fBhash_pair_t\fP ** \fBfind_cell\fP (\fBhash_table_t\fP *table, void *key, uint32_t hashed, bool dont_skip_deleted)"
+.br
+.ti -1c
+.RI "static void \fBresize_table\fP (\fBhash_table_t\fP *table)"
+.br
+.ti -1c
+.RI "bool \fBtable_contains\fP (\fBhash_table_t\fP *table, void *key)"
+.br
+.ti -1c
+.RI "void * \fBtable_get\fP (\fBhash_table_t\fP *table, void *key)"
+.br
+.RI "\fIReturns value of key in the table\&. \fP"
+.ti -1c
+.RI "void \fBtable_set\fP (\fBhash_table_t\fP *table, void *key, void *data)"
+.br
+.RI "\fISets the key in the table to the data\&. \fP"
+.ti -1c
+.RI "bool \fBtable_remove\fP (\fBhash_table_t\fP *table, void *key)"
+.br
+.RI "\fIRemoves key from the table\&. \fP"
+.ti -1c
+.RI "uint32_t \fBtable_size\fP (\fBhash_table_t\fP *table)"
+.br
+.ti -1c
+.RI "\fBhash_table_t\fP * \fBcopy_table\fP (\fBhash_table_t\fP *table)"
+.br
+.ti -1c
+.RI "void * \fBhash_it_next\fP (\fBhash_table_t\fP *table, \fBhash_it_t\fP *iterator)"
+.br
+.ti -1c
+.RI "\fBhash_table_t\fP * \fBcreate_uint32_table\fP ()"
+.br
+.ti -1c
+.RI "\fBhash_table_t\fP * \fBcreate_uint64_table\fP ()"
+.br
+.ti -1c
+.RI "\fBhash_table_t\fP * \fBcreate_string_table\fP ()"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBhash_table_t\fP* copy_table (\fBhash_table_t\fP * table)"
+Copies table to another table\&. 
+.SS "\fBhash_table_t\fP* create_string_table ()"
+Creates table for char* string keys\&. 
+.SS "\fBhash_table_t\fP* create_table (\fBhash_function_t\fP hash_fn, \fBeq_function_t\fP cmpr_fn)"
+
+.PP
+Creates new hash table\&. This hash table will use provided hash_fn and cmpr_fn to hash/compare keys\&. Default size of inner table is HASH_STARTING_SIZE\&. 
+.SS "\fBhash_table_t\fP* create_uint32_table ()"
+Creates table for uint32_t keys\&. 
+.SS "\fBhash_table_t\fP* create_uint64_table ()"
+Creates table for uint64_t keys\&. 
+.SS "void destroy_table (\fBhash_table_t\fP * table)"
+
+.PP
+Deallocates table\&. Removes all data from the table and table itself from memory\&. Will NOT deallocate table keys nor entries! 
+.SS "static \fBhash_pair_t\fP** find_cell (\fBhash_table_t\fP * table, void * key, uint32_t hashed, bool dont_skip_deleted)\fC [static]\fP"
+Returns cell from the hash table\&. 
+.SS "void* hash_it_next (\fBhash_table_t\fP * table, \fBhash_it_t\fP * iterator)"
+Returns value from iterator and moves iterator to next element\&. 
+.SS "static void resize_table (\fBhash_table_t\fP * table)\fC [static]\fP"
+Resizes the hash table to accomodate new elements\&. 
+.SS "bool table_contains (\fBhash_table_t\fP * table, void * key)"
+Returns whether key is in the table or not\&. 
+.SS "void* table_get (\fBhash_table_t\fP * table, void * key)"
+
+.PP
+Returns value of key in the table\&. Returns NULL if key is not in the table\&. 
+.SS "bool table_remove (\fBhash_table_t\fP * table, void * key)"
+
+.PP
+Removes key from the table\&. Returns true if operation was done successfully, false if there was no such key\&. 
+.SS "void table_set (\fBhash_table_t\fP * table, void * key, void * data)"
+
+.PP
+Sets the key in the table to the data\&. Will remove old key-data pair if it exists (does not deallocate old data value!)\&. 
+.SS "uint32_t table_size (\fBhash_table_t\fP * table)"
+Returns number of elements in the table\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libds from the source code\&.

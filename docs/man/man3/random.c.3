@@ -1,0 +1,44 @@
+.TH "random.c" 3 "Mon Jan 4 2016" "Version v0.2" "libds" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+random.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'random\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBrg_t\fP \fBrg_create_random_generator\fP (uint64_t seed)"
+.br
+.RI "\fICreates random generator state\&. \fP"
+.ti -1c
+.RI "\fBruint_t\fP \fBrg_next_uint\fP (\fBrg_t\fP *rg)"
+.br
+.RI "\fIReturns next random unsigned int value\&. \fP"
+.ti -1c
+.RI "\fBruint_t\fP \fBrg_next_uint_l\fP (\fBrg_t\fP *rg, \fBruint_t\fP limit)"
+.br
+.RI "\fIReturns next random unsigned int from 0 to limit\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBrg_t\fP rg_create_random_generator (uint64_t seed)"
+
+.PP
+Creates random generator state\&. Random generator state is seeded with provided seed\&. 
+.SS "\fBruint_t\fP rg_next_uint (\fBrg_t\fP * rg)"
+
+.PP
+Returns next random unsigned int value\&. Int type is ruint_t, which is register sized uint\&. 
+.SS "\fBruint_t\fP rg_next_uint_l (\fBrg_t\fP * rg, \fBruint_t\fP limit)"
+
+.PP
+Returns next random unsigned int from 0 to limit\&. Int type is ruint_t, which is register sized uint\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libds from the source code\&.

@@ -1,0 +1,40 @@
+{\ttfamily libds} is a library providing simple datastructures. It is designed to be portable (to the point only requiring memory allocation and ffreestanding environment).
+
+\subsection*{Provided data structures}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily \hyperlink{random_8h}{ds/random.\+h}} -\/ random number generator
+\item {\ttfamily \hyperlink{array_8h}{ds/array.\+h}} -\/ resizable array list
+\item {\ttfamily \hyperlink{btree_8h}{ds/btree.\+h}} -\/ ballanced tree (red/black tree)
+\item {\ttfamily \hyperlink{hmap_8h}{ds/hmap.\+h}} -\/ hashmap
+\item {\ttfamily \hyperlink{queue_8h}{ds/queue.\+h}} -\/ (F\+I\+F\+O) queue
+\item {\ttfamily \hyperlink{funcops_8h}{ds/funcops.\+h}} -\/ standard function interfaces used by previous data structures (along with some defined concrete functions)
+\end{DoxyItemize}
+
+\subsection*{Requirements}
+
+{\ttfamily libds} requires these headers to be present at build environment\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily $<$stdbool.\+h$>$}
+\item {\ttfamily $<$stddef.\+h$>$}
+\item {\ttfamily $<$stdint.\+h$>$}
+\end{DoxyItemize}
+
+{\ttfamily libds} also requires these extern functions\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily extern void$\ast$ \hyperlink{__commons_8h_a407cb7c4124fb8d97e508ad0a8b0415c}{malloc(size\+\_\+t n)}}
+\item {\ttfamily extern void$\ast$ \hyperlink{__commons_8h_a38e7ddae95f49135e25e2ce810388fbe}{calloc(size\+\_\+t num, size\+\_\+t n)}}
+\item {\ttfamily extern void$\ast$ \hyperlink{__commons_8h_a2cbbe381cb9af0a2781dafafabed9e57}{realloc(void$\ast$ a, size\+\_\+t n)}}
+\item {\ttfamily extern void \hyperlink{__commons_8h_a6c8971f363cd51e5b56e7d583a408567}{free(void$\ast$ a)}}
+\item {\ttfamily extern int \hyperlink{__commons_8h_a14e6581584b7433c4440fdc7ecf86aea}{strcmp(const char$\ast$ a, const char$\ast$ b)}}
+\item {\ttfamily extern void$\ast$ \hyperlink{__commons_8h_a02eae57b492a236cf29b6394f6385860}{memset(void$\ast$ c, int v, size\+\_\+t s)}}
+\end{DoxyItemize}
+
+\subsection*{Building libds}
+
+To build libds, simply invoke {\ttfamily make all} in the root directory. You will need to provide suitable {\ttfamily S\+Y\+S\+R\+O\+O\+T} argument or a {\ttfamily P\+R\+E\+F\+I\+X} argument. {\ttfamily I\+N\+C\+L\+U\+D\+E} argument can be overwritten to change where headers will be copied to (they will always be in {\ttfamily I\+N\+C\+L\+U\+D\+E}/{\ttfamily ds} directory). 

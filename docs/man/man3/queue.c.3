@@ -1,0 +1,99 @@
+.TH "queue.c" 3 "Mon Jan 4 2016" "Version v0.2" "libds" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+queue.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'queue\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBqueue_t\fP * \fBcreate_queue\fP ()"
+.br
+.RI "\fICreates empty queue\&. \fP"
+.ti -1c
+.RI "\fBqueue_t\fP * \fBcreate_queue_static\fP (uint32_t max_queue)"
+.br
+.RI "\fICreates static empty queue with max_queue elements\&. \fP"
+.ti -1c
+.RI "void * \fBqueue_pop\fP (\fBqueue_t\fP *\fBqueue\fP)"
+.br
+.RI "\fIRemoves head of the queue and returns it\&. \fP"
+.ti -1c
+.RI "void * \fBqueue_peek\fP (\fBqueue_t\fP *\fBqueue\fP)"
+.br
+.RI "\fIReturns head of the queue without removing it\&. \fP"
+.ti -1c
+.RI "bool \fBqueue_has_elements\fP (\fBqueue_t\fP *\fBqueue\fP)"
+.br
+.ti -1c
+.RI "static \fBqueue_element_t\fP * \fBget_free_segment\fP (\fBqueue_t\fP *\fBqueue\fP)"
+.br
+.ti -1c
+.RI "bool \fBqueue_push\fP (\fBqueue_t\fP *\fBqueue\fP, void *data)"
+.br
+.RI "\fIAdds element to the queue\&. \fP"
+.ti -1c
+.RI "uint32_t \fBqueue_size\fP (\fBqueue_t\fP *\fBqueue\fP)"
+.br
+.ti -1c
+.RI "void \fBfree_queue\fP (\fBqueue_t\fP *\fBqueue\fP)"
+.br
+.RI "\fIDeallocates queue\&. \fP"
+.ti -1c
+.RI "void \fBqueue_remove\fP (void *element, \fBqueue_t\fP *\fBqueue\fP)"
+.br
+.RI "\fIRemoves element from queue at any position\&. \fP"
+.ti -1c
+.RI "void * \fBqueue_find_by_predicate\fP (void *data, \fBsearch_predicate_t\fP func, \fBqueue_t\fP *\fBqueue\fP)"
+.br
+.RI "\fIReturns element from queue found by search predicate\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBqueue_t\fP* create_queue ()"
+
+.PP
+Creates empty queue\&. This queue can taky any amount of elements and will resize itself when necessary\&. 
+.SS "\fBqueue_t\fP* create_queue_static (uint32_t max_queue)"
+
+.PP
+Creates static empty queue with max_queue elements\&. This queue can hold at most max_queue elements\&. 
+.SS "void free_queue (\fBqueue_t\fP * queue)"
+
+.PP
+Deallocates queue\&. Removes all memory used by this queue\&. Elements in the queue are NOT deallocated\&. 
+.SS "static \fBqueue_element_t\fP* get_free_segment (\fBqueue_t\fP * queue)\fC [static]\fP"
+Returns empty segment for queue element allocation\&. 
+.SS "void* queue_find_by_predicate (void * data, \fBsearch_predicate_t\fP func, \fBqueue_t\fP * queue)"
+
+.PP
+Returns element from queue found by search predicate\&. For more info, see array\&. 
+.SS "bool queue_has_elements (\fBqueue_t\fP * queue)"
+Returns true if queue is not empty\&. 
+.SS "void* queue_peek (\fBqueue_t\fP * queue)"
+
+.PP
+Returns head of the queue without removing it\&. Returns NULL if queue is empty\&. 
+.SS "void* queue_pop (\fBqueue_t\fP * queue)"
+
+.PP
+Removes head of the queue and returns it\&. Returns NULL if queue is empty\&. 
+.SS "bool queue_push (\fBqueue_t\fP * queue, void * data)"
+
+.PP
+Adds element to the queue\&. Element is put at the end of the queue\&. 
+.SS "void queue_remove (void * element, \fBqueue_t\fP * queue)"
+
+.PP
+Removes element from queue at any position\&. Element is compared via ==\&. 
+.SS "uint32_t queue_size (\fBqueue_t\fP * queue)"
+Returns number of elements in the queue\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libds from the source code\&.

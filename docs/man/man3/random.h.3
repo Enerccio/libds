@@ -1,0 +1,59 @@
+.TH "random.h" 3 "Mon Jan 4 2016" "Version v0.2" "libds" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+random.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '_commons\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBrandom_generator\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBrandom_generator\fP \fBrg_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBrg_t\fP \fBrg_create_random_generator\fP (uint64_t seed)"
+.br
+.RI "\fICreates random generator state\&. \fP"
+.ti -1c
+.RI "uint64_t \fBrg_next_uint\fP (\fBrg_t\fP *rg)"
+.br
+.RI "\fIReturns next random unsigned int value\&. \fP"
+.ti -1c
+.RI "uint64_t \fBrg_next_uint_l\fP (\fBrg_t\fP *rg, uint64_t limit)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBrandom_generator\fP  \fBrg_t\fP"
+Random generator state\&. 
+.SH "Function Documentation"
+.PP 
+.SS "\fBrg_t\fP rg_create_random_generator (uint64_t seed)"
+
+.PP
+Creates random generator state\&. Random generator state is seeded with provided seed\&. 
+.SS "uint64_t rg_next_uint (\fBrg_t\fP * rg)"
+
+.PP
+Returns next random unsigned int value\&. Int type is ruint_t, which is register sized uint\&. 
+.SS "uint64_t rg_next_uint_l (\fBrg_t\fP * rg, uint64_t limit)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libds from the source code\&.

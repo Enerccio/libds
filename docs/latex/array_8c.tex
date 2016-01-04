@@ -1,0 +1,182 @@
+\hypertarget{array_8c}{}\section{array.\+c File Reference}
+\label{array_8c}\index{array.\+c@{array.\+c}}
+{\ttfamily \#include \char`\"{}array.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{array_8h_a0772d1d5506e2d615b089478fcff0b7e}{array\+\_\+t} $\ast$ \hyperlink{array_8c_ad4d833d2b0ee7f594c232f8f3bac2f89}{create\+\_\+array} ()
+\begin{DoxyCompactList}\small\item\em Creates array with A\+R\+R\+A\+Y\+\_\+\+S\+T\+A\+R\+T\+I\+N\+G\+\_\+\+S\+I\+Z\+E preallocation count. \end{DoxyCompactList}\item 
+\hyperlink{array_8h_a0772d1d5506e2d615b089478fcff0b7e}{array\+\_\+t} $\ast$ \hyperlink{array_8c_acb29b97b155d1a086bff126b76fba091}{create\+\_\+array\+\_\+spec} (uint32\+\_\+t starting\+\_\+elementa\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Creates array with starting\+\_\+elementa\+\_\+size preallocation count. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{array_8c_af73c7d6deae2ec481a3a91f2bed0ca1a}{array\+\_\+push\+\_\+data} (\hyperlink{array_8h_a0772d1d5506e2d615b089478fcff0b7e}{array\+\_\+t} $\ast$\hyperlink{structarray}{array}, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Adds data on the end of the array. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{array_8c_ae505366679c10da81ab9a946778e96c3}{array\+\_\+find\+\_\+data} (\hyperlink{array_8h_a0772d1d5506e2d615b089478fcff0b7e}{array\+\_\+t} $\ast$\hyperlink{structarray}{array}, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Returns index to the data in the array. \end{DoxyCompactList}\item 
+void \hyperlink{array_8c_a4f41eea24ae869a154006380d3faeb81}{array\+\_\+insert\+\_\+at} (\hyperlink{array_8h_a0772d1d5506e2d615b089478fcff0b7e}{array\+\_\+t} $\ast$\hyperlink{structarray}{array}, uint32\+\_\+t position, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Inserts data at position. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{array_8c_ab36a85cdb11d43a5571fd21fd6816882}{array\+\_\+get\+\_\+at} (\hyperlink{array_8h_a0772d1d5506e2d615b089478fcff0b7e}{array\+\_\+t} $\ast$\hyperlink{structarray}{array}, uint32\+\_\+t position)
+\begin{DoxyCompactList}\small\item\em Returns data at position. \end{DoxyCompactList}\item 
+void \hyperlink{array_8c_a0215a2aaa64ffc5ff14859c17d95450f}{array\+\_\+set\+\_\+at} (\hyperlink{array_8h_a0772d1d5506e2d615b089478fcff0b7e}{array\+\_\+t} $\ast$\hyperlink{structarray}{array}, uint32\+\_\+t position, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Replaces content at position with data. \end{DoxyCompactList}\item 
+void \hyperlink{array_8c_a6c2ab9f837a6dd09243f1198efbd6c84}{array\+\_\+remove\+\_\+at} (\hyperlink{array_8h_a0772d1d5506e2d615b089478fcff0b7e}{array\+\_\+t} $\ast$\hyperlink{structarray}{array}, uint32\+\_\+t position)
+\begin{DoxyCompactList}\small\item\em Removes item at position. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{array_8c_a8888b9d5ec51c43b158df7b0e27217ee}{array\+\_\+get\+\_\+size} (\hyperlink{array_8h_a0772d1d5506e2d615b089478fcff0b7e}{array\+\_\+t} $\ast$\hyperlink{structarray}{array})
+\item 
+void \hyperlink{array_8c_a157d3bab25a991d1064fd8c6384bb766}{destroy\+\_\+array} (\hyperlink{array_8h_a0772d1d5506e2d615b089478fcff0b7e}{array\+\_\+t} $\ast$\hyperlink{structarray}{array})
+\begin{DoxyCompactList}\small\item\em Deallocates all memory used by this array. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{array_8c_ab66001cc3bacf635f24b8de2b54daafd}{array\+\_\+find\+\_\+by\+\_\+pred} (\hyperlink{array_8h_a0772d1d5506e2d615b089478fcff0b7e}{array\+\_\+t} $\ast$\hyperlink{structarray}{array}, \hyperlink{funcops_8h_aae786e6df58b8cbb8b46a1fc33fb057c}{search\+\_\+predicate\+\_\+t} predicate, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Returns first element that matches predicate. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{array_8c_a7a66b93bb5a9b91185bcb0e40f38b69c}{array\+\_\+get\+\_\+random} (\hyperlink{array_8h_a0772d1d5506e2d615b089478fcff0b7e}{array\+\_\+t} $\ast$\hyperlink{structarray}{array}, \hyperlink{random_8h_ac7dfdeaa6af412b1f3c88f7b8ef94c1a}{rg\+\_\+t} $\ast$rg)
+\begin{DoxyCompactList}\small\item\em Returns random element from array. \end{DoxyCompactList}\item 
+void \hyperlink{array_8c_a37f437ac6ed917ba1c26c356ae8ab682}{array\+\_\+clean} (\hyperlink{array_8h_a0772d1d5506e2d615b089478fcff0b7e}{array\+\_\+t} $\ast$\hyperlink{structarray}{array})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{array_8c_a37f437ac6ed917ba1c26c356ae8ab682}{}\index{array.\+c@{array.\+c}!array\+\_\+clean@{array\+\_\+clean}}
+\index{array\+\_\+clean@{array\+\_\+clean}!array.\+c@{array.\+c}}
+\subsubsection[{array\+\_\+clean(array\+\_\+t $\ast$array)}]{\setlength{\rightskip}{0pt plus 5cm}void array\+\_\+clean (
+\begin{DoxyParamCaption}
+\item[{{\bf array\+\_\+t} $\ast$}]{array}
+\end{DoxyParamCaption}
+)}\label{array_8c_a37f437ac6ed917ba1c26c356ae8ab682}
+Removes all elements from array. \hypertarget{array_8c_ab66001cc3bacf635f24b8de2b54daafd}{}\index{array.\+c@{array.\+c}!array\+\_\+find\+\_\+by\+\_\+pred@{array\+\_\+find\+\_\+by\+\_\+pred}}
+\index{array\+\_\+find\+\_\+by\+\_\+pred@{array\+\_\+find\+\_\+by\+\_\+pred}!array.\+c@{array.\+c}}
+\subsubsection[{array\+\_\+find\+\_\+by\+\_\+pred(array\+\_\+t $\ast$array, search\+\_\+predicate\+\_\+t predicate, void $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ array\+\_\+find\+\_\+by\+\_\+pred (
+\begin{DoxyParamCaption}
+\item[{{\bf array\+\_\+t} $\ast$}]{array, }
+\item[{{\bf search\+\_\+predicate\+\_\+t}}]{predicate, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{array_8c_ab66001cc3bacf635f24b8de2b54daafd}
+
+
+Returns first element that matches predicate. 
+
+Calls predicate function with each element of an array and with data provided, first true returned from the predicate is returned or N\+U\+L\+L if nothing matched the predicate. \hypertarget{array_8c_ae505366679c10da81ab9a946778e96c3}{}\index{array.\+c@{array.\+c}!array\+\_\+find\+\_\+data@{array\+\_\+find\+\_\+data}}
+\index{array\+\_\+find\+\_\+data@{array\+\_\+find\+\_\+data}!array.\+c@{array.\+c}}
+\subsubsection[{array\+\_\+find\+\_\+data(array\+\_\+t $\ast$array, void $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}int32\+\_\+t array\+\_\+find\+\_\+data (
+\begin{DoxyParamCaption}
+\item[{{\bf array\+\_\+t} $\ast$}]{array, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{array_8c_ae505366679c10da81ab9a946778e96c3}
+
+
+Returns index to the data in the array. 
+
+Returns -\/1 if data is not found in the array. Compares data via ==. \hypertarget{array_8c_ab36a85cdb11d43a5571fd21fd6816882}{}\index{array.\+c@{array.\+c}!array\+\_\+get\+\_\+at@{array\+\_\+get\+\_\+at}}
+\index{array\+\_\+get\+\_\+at@{array\+\_\+get\+\_\+at}!array.\+c@{array.\+c}}
+\subsubsection[{array\+\_\+get\+\_\+at(array\+\_\+t $\ast$array, uint32\+\_\+t position)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ array\+\_\+get\+\_\+at (
+\begin{DoxyParamCaption}
+\item[{{\bf array\+\_\+t} $\ast$}]{array, }
+\item[{uint32\+\_\+t}]{position}
+\end{DoxyParamCaption}
+)}\label{array_8c_ab36a85cdb11d43a5571fd21fd6816882}
+
+
+Returns data at position. 
+
+Returns N\+U\+L\+L if position is larger than size of an array or equal. \hypertarget{array_8c_a7a66b93bb5a9b91185bcb0e40f38b69c}{}\index{array.\+c@{array.\+c}!array\+\_\+get\+\_\+random@{array\+\_\+get\+\_\+random}}
+\index{array\+\_\+get\+\_\+random@{array\+\_\+get\+\_\+random}!array.\+c@{array.\+c}}
+\subsubsection[{array\+\_\+get\+\_\+random(array\+\_\+t $\ast$array, rg\+\_\+t $\ast$rg)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ array\+\_\+get\+\_\+random (
+\begin{DoxyParamCaption}
+\item[{{\bf array\+\_\+t} $\ast$}]{array, }
+\item[{{\bf rg\+\_\+t} $\ast$}]{rg}
+\end{DoxyParamCaption}
+)}\label{array_8c_a7a66b93bb5a9b91185bcb0e40f38b69c}
+
+
+Returns random element from array. 
+
+Returns N\+U\+L\+L if array is empty. \hypertarget{array_8c_a8888b9d5ec51c43b158df7b0e27217ee}{}\index{array.\+c@{array.\+c}!array\+\_\+get\+\_\+size@{array\+\_\+get\+\_\+size}}
+\index{array\+\_\+get\+\_\+size@{array\+\_\+get\+\_\+size}!array.\+c@{array.\+c}}
+\subsubsection[{array\+\_\+get\+\_\+size(array\+\_\+t $\ast$array)}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t array\+\_\+get\+\_\+size (
+\begin{DoxyParamCaption}
+\item[{{\bf array\+\_\+t} $\ast$}]{array}
+\end{DoxyParamCaption}
+)}\label{array_8c_a8888b9d5ec51c43b158df7b0e27217ee}
+Returns number of elements in the array \hypertarget{array_8c_a4f41eea24ae869a154006380d3faeb81}{}\index{array.\+c@{array.\+c}!array\+\_\+insert\+\_\+at@{array\+\_\+insert\+\_\+at}}
+\index{array\+\_\+insert\+\_\+at@{array\+\_\+insert\+\_\+at}!array.\+c@{array.\+c}}
+\subsubsection[{array\+\_\+insert\+\_\+at(array\+\_\+t $\ast$array, uint32\+\_\+t position, void $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void array\+\_\+insert\+\_\+at (
+\begin{DoxyParamCaption}
+\item[{{\bf array\+\_\+t} $\ast$}]{array, }
+\item[{uint32\+\_\+t}]{position, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{array_8c_a4f41eea24ae869a154006380d3faeb81}
+
+
+Inserts data at position. 
+
+This operation is O(n) at worst case due to shifting. If n == size of array-\/1, then this operation is same as array\+\_\+push\+\_\+data. \hypertarget{array_8c_af73c7d6deae2ec481a3a91f2bed0ca1a}{}\index{array.\+c@{array.\+c}!array\+\_\+push\+\_\+data@{array\+\_\+push\+\_\+data}}
+\index{array\+\_\+push\+\_\+data@{array\+\_\+push\+\_\+data}!array.\+c@{array.\+c}}
+\subsubsection[{array\+\_\+push\+\_\+data(array\+\_\+t $\ast$array, void $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t array\+\_\+push\+\_\+data (
+\begin{DoxyParamCaption}
+\item[{{\bf array\+\_\+t} $\ast$}]{array, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{array_8c_af73c7d6deae2ec481a3a91f2bed0ca1a}
+
+
+Adds data on the end of the array. 
+
+This is O(1) operation most of the time, unless array has to resize, then it is O(n) operation. data is always placed as last element. \hypertarget{array_8c_a6c2ab9f837a6dd09243f1198efbd6c84}{}\index{array.\+c@{array.\+c}!array\+\_\+remove\+\_\+at@{array\+\_\+remove\+\_\+at}}
+\index{array\+\_\+remove\+\_\+at@{array\+\_\+remove\+\_\+at}!array.\+c@{array.\+c}}
+\subsubsection[{array\+\_\+remove\+\_\+at(array\+\_\+t $\ast$array, uint32\+\_\+t position)}]{\setlength{\rightskip}{0pt plus 5cm}void array\+\_\+remove\+\_\+at (
+\begin{DoxyParamCaption}
+\item[{{\bf array\+\_\+t} $\ast$}]{array, }
+\item[{uint32\+\_\+t}]{position}
+\end{DoxyParamCaption}
+)}\label{array_8c_a6c2ab9f837a6dd09243f1198efbd6c84}
+
+
+Removes item at position. 
+
+O(n) operation, due to shifting. If position == size of array, it is O(1) operation instead. \hypertarget{array_8c_a0215a2aaa64ffc5ff14859c17d95450f}{}\index{array.\+c@{array.\+c}!array\+\_\+set\+\_\+at@{array\+\_\+set\+\_\+at}}
+\index{array\+\_\+set\+\_\+at@{array\+\_\+set\+\_\+at}!array.\+c@{array.\+c}}
+\subsubsection[{array\+\_\+set\+\_\+at(array\+\_\+t $\ast$array, uint32\+\_\+t position, void $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void array\+\_\+set\+\_\+at (
+\begin{DoxyParamCaption}
+\item[{{\bf array\+\_\+t} $\ast$}]{array, }
+\item[{uint32\+\_\+t}]{position, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{array_8c_a0215a2aaa64ffc5ff14859c17d95450f}
+
+
+Replaces content at position with data. 
+
+Does nothing if position is larger than size of an array or equal. \hypertarget{array_8c_ad4d833d2b0ee7f594c232f8f3bac2f89}{}\index{array.\+c@{array.\+c}!create\+\_\+array@{create\+\_\+array}}
+\index{create\+\_\+array@{create\+\_\+array}!array.\+c@{array.\+c}}
+\subsubsection[{create\+\_\+array()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf array\+\_\+t}$\ast$ create\+\_\+array (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{array_8c_ad4d833d2b0ee7f594c232f8f3bac2f89}
+
+
+Creates array with A\+R\+R\+A\+Y\+\_\+\+S\+T\+A\+R\+T\+I\+N\+G\+\_\+\+S\+I\+Z\+E preallocation count. 
+
+Starting allocation size will be set to A\+R\+R\+A\+Y\+\_\+\+S\+T\+A\+R\+T\+I\+N\+G\+\_\+\+S\+I\+Z\+E $\ast$ sizeof(void$\ast$). \hypertarget{array_8c_acb29b97b155d1a086bff126b76fba091}{}\index{array.\+c@{array.\+c}!create\+\_\+array\+\_\+spec@{create\+\_\+array\+\_\+spec}}
+\index{create\+\_\+array\+\_\+spec@{create\+\_\+array\+\_\+spec}!array.\+c@{array.\+c}}
+\subsubsection[{create\+\_\+array\+\_\+spec(uint32\+\_\+t starting\+\_\+elementa\+\_\+size)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf array\+\_\+t}$\ast$ create\+\_\+array\+\_\+spec (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{starting\+\_\+elementa\+\_\+size}
+\end{DoxyParamCaption}
+)}\label{array_8c_acb29b97b155d1a086bff126b76fba091}
+
+
+Creates array with starting\+\_\+elementa\+\_\+size preallocation count. 
+
+Starting allocation size will be set to starting\+\_\+elementa\+\_\+size $\ast$ sizeof(void$\ast$). \hypertarget{array_8c_a157d3bab25a991d1064fd8c6384bb766}{}\index{array.\+c@{array.\+c}!destroy\+\_\+array@{destroy\+\_\+array}}
+\index{destroy\+\_\+array@{destroy\+\_\+array}!array.\+c@{array.\+c}}
+\subsubsection[{destroy\+\_\+array(array\+\_\+t $\ast$array)}]{\setlength{\rightskip}{0pt plus 5cm}void destroy\+\_\+array (
+\begin{DoxyParamCaption}
+\item[{{\bf array\+\_\+t} $\ast$}]{array}
+\end{DoxyParamCaption}
+)}\label{array_8c_a157d3bab25a991d1064fd8c6384bb766}
+
+
+Deallocates all memory used by this array. 
+
+Elements itself are N\+O\+T deallocated! 
