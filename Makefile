@@ -1,7 +1,8 @@
-SYSPATH ?= 
+SYSROOT ?= 
 PREFIX ?= /usr
-LIBPATH ?= ${SYSPATH}${PREFIX}/lib
-INCPATH ?= ${SYSPATH}${PREFIX}/include
+LIBPATH ?= ${SYSROOT}${PREFIX}/lib
+INCPATH ?= ${SYSROOT}${PREFIX}/include
+MODE ?= release
 
 include confbase.mk
 include $(MODE).mk
