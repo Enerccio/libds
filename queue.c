@@ -135,6 +135,7 @@ static queue_element_t* get_free_segment(queue_t* queue) {
  * \brief Adds element to the queue.
  *
  * Element is put at the end of the queue.
+ * Returns true if failure happened.
  ********************************************************************************/
 bool queue_push(queue_t* queue, void* data) {
     queue_element_t* element;
@@ -187,6 +188,7 @@ void free_queue(queue_t* queue) {
             free(el);
             el = tmp;
         }
+        free(queue);
     }
 }
 
@@ -204,7 +206,8 @@ void queue_remove(void* element, queue_t* queue) {
         e = e->next;
 
     if (e) {
-        e->previous->next = e->next;
+    	if (e->previous)
+    		e->previous->next = e->next;
         if (e->next)
             e->next->previous = e->previous;
         if (queue->is_static == true)
