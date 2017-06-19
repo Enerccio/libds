@@ -156,7 +156,7 @@ void* table_get(hash_table_t* table, void* key) {
  * Returns true if space for new element (or increased table size)
  * cannot be allocated.
  ********************************************************************************/
-void table_set(hash_table_t* table, void* key, void* data) {
+bool table_set(hash_table_t* table, void* key, void* data) {
     hash_pair_t** cell = find_cell(table, key, table->hash_fn(key), true);
     if (*cell == FREE_CELL || *cell == DELETED_CELL) {
         hash_pair_t* pair = (hash_pair_t*) malloc(sizeof(hash_pair_t));
