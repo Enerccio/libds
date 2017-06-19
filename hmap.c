@@ -214,7 +214,7 @@ hash_table_t* copy_table(hash_table_t* table) {
  ********************************************************************************/
 void* hash_it_next(hash_table_t* table, hash_it_t* iterator) {
     void* data = 0;
-    while (data != 0 && *iterator < table->max_size) {
+    while (data == 0 && *iterator < table->max_size) {
         hash_pair_t* pair = table->hash_table[*iterator];
         if (pair != FREE_CELL && pair != DELETED_CELL)
             data = pair->data;
