@@ -123,6 +123,7 @@ static bool resize_table(hash_table_t* table) {
     table->hash_table = new_table->hash_table;
     table->len = new_table->len;
     free(new_table);
+    return false;
 }
 
 /******************************************************************************//**
