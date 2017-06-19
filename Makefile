@@ -1,4 +1,4 @@
-SYSROOT ?= 
+SYSROOT ?=
 PREFIX ?= /usr
 LIBPATH ?= ${SYSROOT}${PREFIX}/lib
 INCPATH ?= ${SYSROOT}${PREFIX}/include
@@ -9,7 +9,7 @@ include $(MODE).mk
 
 HSRC   := $(wildcard *.h)
 SRC    := $(wildcard *.c)
-OBJ    := $(SRC:.c=.o) 
+OBJ    := $(SRC:.c=.o)
 DEP    := $(SRC:.c=.d)
 -include $(DEP)
 
@@ -20,20 +20,26 @@ ARFLAGS   := $(BASE_ARFLAGS)   $(MODE_ARFLAGS)  $(ARLAGS_FOR_TARGET)
 CC := gcc
 AR := ar
 
-.PHONY: all clean 
+.PHONY: all clean tests
 
 all: libds.a
 
-clean: 
+tests:
+	make libds.a PREFIX=tests/ds
+	$(MAKE) -C tests/testsrc all MODE=$(MODE)
+	$(MAKE) -C tests/tests all MODE=$(MODE)
+
+clean:
 	-rm -f $(OBJ)
 	-rm -f $(wildcard *.d)
 	-rm ${LIBPATH}/libds.a
-	
-%.o : %.c 
+
+%.o : %.c
 	$(CC) -MM -MF $(patsubst %.o,%.d,$@) $(CFLAGS) $(CPPFLAGS) -I"${INCPATH}" -c $<
 	$(CC) $(CFLAGS) $(CPPFLAGS) -I"${INCPATH}" -c $< -o $@
-	
-libds.a: $(OBJ) 
-	-mkdir ${INCPATH}/ds
-	cp *.h ${INCPATH}/ds -r 
+
+libds.a: $(OBJ)
+	-mkdir ${INCPATH}/ds -p
+	-mkdir ${LIBPATH} -p
+	cp *.h ${INCPATH}/ds -r
 	$(AR) ${ARFLAGS} -rcs ${LIBPATH}/$@ $(OBJ)

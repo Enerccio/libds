@@ -8,6 +8,12 @@
 *.gch
 *.pch
 
+# Temp files
+*.d
+
+# Test files
+*.test
+
 # Libraries
 *.lib
 *.a
