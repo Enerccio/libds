@@ -56,7 +56,7 @@ array_t* create_array();
 array_t* create_array_spec(uint32_t starting_element_size);
 uint32_t array_push_data(array_t* array, void* data);
 int32_t array_find_data(array_t* array, void* data);
-void array_insert_at(array_t* array, uint32_t pos, void* data);
+bool array_insert_at(array_t* array, uint32_t pos, void* data);
 void* array_get_at(array_t* array, uint32_t position);
 void array_set_at(array_t* array, uint32_t position, void* data);
 void array_remove_at(array_t* array, uint32_t position);

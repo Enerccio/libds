@@ -114,7 +114,10 @@ static bool resize_table(hash_table_t* table) {
     for (; i<table->max_size; i++) {
         hash_pair_t* cell = table->hash_table[i];
         if (cell != FREE_CELL && cell != DELETED_CELL) {
-            table_set(new_table, cell->key, cell->data);
+            if (table_set(new_table, cell->key, cell->data)) {
+            	destroy_table(new_table);
+            	return true;
+            }
             free(cell);
         }
     }
