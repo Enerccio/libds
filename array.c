@@ -69,14 +69,14 @@ uint32_t array_push_data(array_t* array, void* data) {
     if (array->size == array->data_size/sizeof(void*)) {
     	void** new_backing_array = (void**) realloc(array->data, array->data_size + (array->starting_size * sizeof(void*)));
     	if (new_backing_array == NULL) {
-    		return array->size-1;
+    		return array->size;
     	}
     	array->data = new_backing_array;
         array->data_size += array->starting_size * sizeof(void*);
     }
 
     array->data[array->size++] = data;
-    return array->size-1;
+    return array->size;
 }
 
 /******************************************************************************//**
