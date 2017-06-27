@@ -66,6 +66,12 @@ void* array_find_by_pred(array_t* array, search_predicate_t predicate, void* dat
 void* array_get_random(array_t* array, rg_t* rg);
 void array_clean(array_t* array);
 
+#define __ARRAY_FOR_EACH(array, type, var, it) \
+	type var;\
+	for (uint32_t it = 0; it < array_get_size(array) && ((var = (type)array_get_at(array, it)) || 1); it++)
+#define ARRAY_FOR_EACH(array, type, var) __ARRAY_FOR_EACH(array, type, var, LIBDS_GENSYM(array_it))
+
+
 #ifdef __cplusplus
 }
 #endif
