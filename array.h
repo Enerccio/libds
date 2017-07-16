@@ -54,6 +54,13 @@ typedef struct array {
 
 array_t* create_array();
 array_t* create_array_spec(uint32_t starting_element_size);
+// false on
+#define _ARRAY_PUSH_DATA(array, data, sym, sym2) ({ \
+	uint32_t sym = array_get_size(array); \
+	uint32_t sym2 = array_push_data(array, data); \
+	sym == sym2; \
+})
+#define ARRAY_PUSH_DATA(array, data) _ARRAY_PUSH_DATA(array, data, LIBDS_GENSYM(count), LIBDS_GENSYM(afteri))
 uint32_t array_push_data(array_t* array, void* data);
 int32_t array_find_data(array_t* array, void* data);
 bool array_insert_at(array_t* array, uint32_t pos, void* data);
