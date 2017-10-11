@@ -32,8 +32,8 @@
  *
  * This list can take any amount of elements and will resize itself when necessary.
  ********************************************************************************/
-list_t* create_list() {
-    list_t* list = (list_t*) malloc(sizeof(list_t));
+ds_list_t* create_list() {
+    ds_list_t* list = (ds_list_t*) malloc(sizeof(ds_list_t));
     if (list) {
 		list->first = 0;
 		list->last = 0;
@@ -47,7 +47,7 @@ list_t* create_list() {
  *
  * Returns NULL if list is empty.
  ********************************************************************************/
-void* list_remove_left(list_t* list) {
+void* list_remove_left(ds_list_t* list) {
     list_element_t* list_head = list->first;
     if (list_head == 0)
         return 0;
@@ -75,7 +75,7 @@ void* list_remove_left(list_t* list) {
  *
  * Returns NULL if list is empty.
  ********************************************************************************/
-void* list_remove_right(list_t* list) {
+void* list_remove_right(ds_list_t* list) {
     list_element_t* list_head = list->last;
     if (list_head == 0)
         return 0;
@@ -103,7 +103,7 @@ void* list_remove_right(list_t* list) {
  *
  * Returns NULL if list is empty.
  ********************************************************************************/
-void* list_get_left(list_t* list) {
+void* list_get_left(ds_list_t* list) {
     list_element_t* list_head = list->first;
     if (list_head == 0)
         return 0;
@@ -116,7 +116,7 @@ void* list_get_left(list_t* list) {
  *
  * Returns NULL if list is empty.
  ********************************************************************************/
-void* list_get_right(list_t* list) {
+void* list_get_right(ds_list_t* list) {
     list_element_t* list_head = list->last;
     if (list_head == 0)
         return 0;
@@ -127,7 +127,7 @@ void* list_get_right(list_t* list) {
 /******************************************************************************//**
  * Returns true if list is not empty.
  ********************************************************************************/
-bool list_has_elements(list_t* list) {
+bool list_has_elements(ds_list_t* list) {
     return list_size(list) > 0;
 }
 
@@ -137,7 +137,7 @@ bool list_has_elements(list_t* list) {
  * Element is put at the head of the list.
  * Returns true if failure happened.
  ********************************************************************************/
-bool list_push_left(list_t* list, void* data) {
+bool list_push_left(ds_list_t* list, void* data) {
     list_element_t* element;
     element = (list_element_t*) malloc(sizeof(list_element_t));
 
@@ -167,7 +167,7 @@ bool list_push_left(list_t* list, void* data) {
  * Element is put at the end of the list.
  * Returns true if failure happened.
  ********************************************************************************/
-bool list_push_right(list_t* list, void* data) {
+bool list_push_right(ds_list_t* list, void* data) {
     list_element_t* element;
     element = (list_element_t*) malloc(sizeof(list_element_t));
 
@@ -194,7 +194,7 @@ bool list_push_right(list_t* list, void* data) {
 /******************************************************************************//**
  * Returns number of elements in the list.
  ********************************************************************************/
-uint32_t list_size(list_t* list) {
+uint32_t list_size(ds_list_t* list) {
     return list->size;
 }
 
@@ -204,7 +204,7 @@ uint32_t list_size(list_t* list) {
  * Removes all memory used by this list. Elements in the list are NOT
  * deallocated.
  ********************************************************************************/
-void free_list(list_t* list) {
+void free_list(ds_list_t* list) {
 	list_element_t* el = list->first;
 	while (el != 0) {
 		list_element_t* tmp = el->next;
@@ -219,7 +219,7 @@ void free_list(list_t* list) {
  *
  * Element is compared via ==.
  ********************************************************************************/
-void list_remove(void* element, list_t* list) {
+void list_remove(void* element, ds_list_t* list) {
     if (list->size == 0)
         return;
 
@@ -245,7 +245,7 @@ void list_remove(void* element, list_t* list) {
     }
 }
 
-bool list_contains(list_t* list, void* element) {
+bool list_contains(ds_list_t* list, void* element) {
 	if (list->size == 0)
 		return false;
 
@@ -264,7 +264,7 @@ bool list_contains(list_t* list, void* element) {
  *
  * For more info, see array.
  ********************************************************************************/
-void* list_find_by_predicate(void* data, search_predicate_t func, list_t* list) {
+void* list_find_by_predicate(void* data, search_predicate_t func, ds_list_t* list) {
     if (list->size == 0)
         return 0;
 
@@ -283,7 +283,7 @@ void* list_find_by_predicate(void* data, search_predicate_t func, list_t* list) 
  *
  * Delete all elements that return true for predicate
  ********************************************************************************/
-void list_remove_by_predicate(void* data, search_predicate_t func, list_t* list) {
+void list_remove_by_predicate(void* data, search_predicate_t func, ds_list_t* list) {
 	if (list->size == 0)
 		return;
 
@@ -313,7 +313,7 @@ void list_remove_by_predicate(void* data, search_predicate_t func, list_t* list)
 /******************************************************************************//**
  * Creates iterator for list
  ********************************************************************************/
-void list_create_iterator(list_t* list, list_iterator_t* li) {
+void list_create_iterator(ds_list_t* list, list_iterator_t* li) {
 	li->current = list->first;
 	li->prev = &list->first;
 	li->pprev = NULL;

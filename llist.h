@@ -55,7 +55,7 @@ typedef struct list {
     list_element_t* last;
     /** Number of elements in list */
     uint32_t size;
-} list_t;
+} ds_list_t;
 
 typedef struct list_iterator {
 	list_element_t* current;
@@ -64,24 +64,24 @@ typedef struct list_iterator {
 	uint32_t* ls;
 } list_iterator_t;
 
-list_t* create_list();
+ds_list_t* create_list();
 
-void* list_remove_left(list_t* list);
-void* list_get_left(list_t* list);
-void* list_remove_right(list_t* list);
-void* list_get_right(list_t* list);
-bool list_push_left(list_t* list, void* data);
-bool list_push_right(list_t* list, void* data);
+void* list_remove_left(ds_list_t* list);
+void* list_get_left(ds_list_t* list);
+void* list_remove_right(ds_list_t* list);
+void* list_get_right(ds_list_t* list);
+bool list_push_left(ds_list_t* list, void* data);
+bool list_push_right(ds_list_t* list, void* data);
 
-bool list_has_elements(list_t* list);
-bool list_contains(list_t* list, void* element);
-uint32_t list_size(list_t* list);
-void free_list(list_t* list);
-void list_remove(void* element, list_t* list);
-void* list_find_by_predicate(void* data, search_predicate_t func, list_t* list);
-void list_remove_by_predicate(void* data, search_predicate_t func, list_t* list);
+bool list_has_elements(ds_list_t* list);
+bool list_contains(ds_list_t* list, void* element);
+uint32_t list_size(ds_list_t* list);
+void free_list(ds_list_t* list);
+void list_remove(void* element, ds_list_t* list);
+void* list_find_by_predicate(void* data, search_predicate_t func, ds_list_t* list);
+void list_remove_by_predicate(void* data, search_predicate_t func, ds_list_t* list);
 
-void list_create_iterator(list_t* list, list_iterator_t* li);
+void list_create_iterator(ds_list_t* list, list_iterator_t* li);
 bool list_has_next(list_iterator_t* li);
 void* list_next(list_iterator_t* li);
 void list_remove_it(list_iterator_t* li);
