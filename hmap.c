@@ -86,7 +86,7 @@ static hash_pair_t**  find_cell(hash_table_t* table, void* key, uint32_t hashed,
 
         hash = (primary_hash + (secondary_hash * i++)) % table->max_size;
         pair = table->hash_table[hash];
-        secondary_hash = 1 + (hash % (table->max_size - 1));
+        secondary_hash = 1 + (i + hash % (table->max_size - 1));
     }
 
     return &table->hash_table[hash];
@@ -174,7 +174,7 @@ bool table_set(hash_table_t* table, void* key, void* data) {
 
         ++table->len;
 
-        if (table->len > (table->max_size / 4) * 3)
+        if (table->len >= (table->max_size / 4) * 3)
             resize_table(table);
     } else if (table->cmpr_fn(key, (*cell)->key) == true) {
         (*cell)->data = data;
